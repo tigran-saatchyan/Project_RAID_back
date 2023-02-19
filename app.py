@@ -1,4 +1,5 @@
-from flask import Flask
+import git
+from flask import Flask, request
 from flask_restx import Api
 
 from main.config import Config
@@ -25,6 +26,23 @@ app_config = Config()
 app = create_app(app_config, app)
 
 register_extensions(app)
+
+
+# Continuous deployment
+@app.route('/git_update', methods=['POST'])
+def git_update():
+    if request.method == 'POST':
+        repo = git.Repo('./Project_RAID_back')
+        origin = repo.remotes.origin
+        repo.create_head(
+            'master',
+            origin.refs.master
+        ).set_tracking_branch(origin.refs.master).checkout()
+        origin.pull()
+        return '', 200
+    else:
+        return '', 400
+
 
 if __name__ == 'main':
     app.run()
