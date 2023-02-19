@@ -28,7 +28,7 @@ app = create_app(app_config, app)
 register_extensions(app)
 
 
-# Continuous deployment
+# Continuous deployment via WebHook
 @app.route('/git_update', methods=['POST'])
 def git_update():
     if request.method == 'POST':
@@ -45,4 +45,4 @@ def git_update():
 
 
 if __name__ == 'main':
-    app.run()
+    app.run(debug=True)
