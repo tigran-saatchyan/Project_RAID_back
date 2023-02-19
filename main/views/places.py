@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Api, Namespace, Resource, reqparse
 
-from main.container import apartment_service, apartments_features_service
+from main.container import apartment_service
 from main.dao.models.apartments import ApartmentsSchema
 
 places_ns = Namespace('places', 'Places namespace')
@@ -12,7 +12,7 @@ apartments_schema = ApartmentsSchema(many=True)
 api = Api()
 
 places_parser = reqparse.RequestParser()
-places_parser.add_argument('city', type=str, help='City')
+places_parser.add_argument('city', type=str, help='Filter by selected City')
 places_parser.add_argument('from', type=int, help='Price From:')
 places_parser.add_argument('to', type=int, help='Price To')
 
@@ -25,7 +25,6 @@ class PlacesView(Resource):
         filter_city = request.args.get('city')
         price_from = request.args.get('from')
         price_to = request.args.get('to')
-
 
         all_apartment = apartment_service.get_all()
 
