@@ -1,10 +1,10 @@
-from app.dao.apartments import ApartmentsDAO
-from app.dao.apartments_features import ApartmentFeaturesDAO
-from app.dao.host import HostDAO
-from app.services.apartments import ApartmentsService
-from app.services.apartments_features import ApartmentFeaturesService
-from app.services.host import HostService
-from app.setup_db import db
+from main.dao.apartments import ApartmentsDAO
+from main.dao.apartments_features import ApartmentFeaturesDAO
+from main.dao.host import HostDAO
+from main.services.apartments import ApartmentsService
+from main.services.apartments_features import ApartmentFeaturesService
+from main.services.host import HostService
+from main.setup_db import db
 
 apartment_dao = ApartmentsDAO(db.session)
 apartment_service = ApartmentsService(apartment_dao)

@@ -1,4 +1,4 @@
-from app.dao.location import LocationDAO
+from main.dao.location import LocationDAO
 
 
 class LocationService:

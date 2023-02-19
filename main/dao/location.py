@@ -1,4 +1,4 @@
-from app.dao.models.location import Location
+from main.dao.models.location import Location
 
 
 class LocationDAO:

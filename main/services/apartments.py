@@ -1,4 +1,4 @@
-from app.dao.apartments import ApartmentsDAO
+from main.dao.apartments import ApartmentsDAO
 
 
 class ApartmentsService:

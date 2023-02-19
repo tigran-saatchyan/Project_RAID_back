@@ -1,4 +1,4 @@
-from app.dao.models.host import Host
+from main.dao.models.host import Host
 
 
 class HostDAO:

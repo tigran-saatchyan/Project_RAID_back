@@ -1,8 +1,8 @@
 from marshmallow import Schema, fields
 
-from app.dao.models.host import HostSchema
-from app.dao.models.location import LocationSchema
-from app.setup_db import db
+from main.dao.models.host import HostSchema
+from main.dao.models.location import LocationSchema
+from main.setup_db import db
 
 
 class Apartments(db.Model):

@@ -1,6 +1,6 @@
-from app.dao.models.apartments import Apartments
-from app.dao.models.host import Host
-from app.dao.models.location import Location
+from main.dao.models.apartments import Apartments
+from main.dao.models.host import Host
+from main.dao.models.location import Location
 
 
 class ApartmentsDAO:

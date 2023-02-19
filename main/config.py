@@ -1,8 +1,8 @@
-from app.constants import SQLITE_DB_NAME
+from main.constants import SQLITE_DB_NAME
 
 
 class Config:
-    # app.run configuration
+    # main.run configuration
     DEBUG = True
 
     # SQLALCHEMY configuration

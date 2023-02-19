@@ -1,8 +1,8 @@
 from flask import request
 from flask_restx import Api, Namespace, Resource, reqparse
 
-from app.container import apartment_service, apartments_features_service
-from app.dao.models.apartments import ApartmentsSchema
+from main.container import apartment_service, apartments_features_service
+from main.dao.models.apartments import ApartmentsSchema
 
 places_ns = Namespace('places', 'Places namespace')
 

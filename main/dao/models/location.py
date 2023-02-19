@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-from app.setup_db import db
+from main.setup_db import db
 
 
 class Location(db.Model):

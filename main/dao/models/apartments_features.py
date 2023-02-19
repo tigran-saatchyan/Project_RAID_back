@@ -1,4 +1,4 @@
-from app.setup_db import db
+from main.setup_db import db
 
 
 class ApartmentFeatures(db.Model):

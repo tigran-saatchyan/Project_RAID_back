@@ -1,4 +1,4 @@
-from app.dao.host import HostDAO
+from main.dao.host import HostDAO
 
 
 class HostService:

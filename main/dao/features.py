@@ -1,4 +1,4 @@
-from app.dao.models.features import Features
+from main.dao.models.features import Features
 
 
 class FeaturesDAO:

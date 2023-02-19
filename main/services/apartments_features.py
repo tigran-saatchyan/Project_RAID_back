@@ -1,4 +1,4 @@
-from app.dao.apartments_features import ApartmentFeaturesDAO
+from main.dao.apartments_features import ApartmentFeaturesDAO
 
 
 class ApartmentFeaturesService:

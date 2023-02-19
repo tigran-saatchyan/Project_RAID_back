@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_restx import Api
 
-from app.config import Config
-from app.setup_db import db
-from app.views.places import places_ns
+from main.config import Config
+from main.setup_db import db
+from main.views.places import places_ns
 
 
 def create_app(config: Config) -> Flask:

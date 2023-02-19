@@ -1,5 +1,5 @@
-from app.dao.models.apartments_features import ApartmentFeatures
-from app.dao.models.features import Features
+from main.dao.models.apartments_features import ApartmentFeatures
+from main.dao.models.features import Features
 
 
 class ApartmentFeaturesDAO:
