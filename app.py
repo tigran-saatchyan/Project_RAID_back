@@ -19,10 +19,9 @@ def register_extensions(application: Flask):
     api.add_namespace(places_ns)
 
 
-if __name__ == '__main__':
-    app_config = Config()
-    app = create_app(app_config)
+app_config = Config()
+app = create_app(app_config)
 
-    register_extensions(app)
+register_extensions(app)
 
-    app.run()
+app.run()
