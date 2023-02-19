@@ -69,6 +69,6 @@ class ApartmentsSchema(Schema):
     # host_location = fields.Pluck(HostSchema, "host_location")
     #
 
-
-    class Meta:
-        ordered = True
+    #
+    # class Meta:
+    #     ordered = True

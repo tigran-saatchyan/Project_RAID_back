@@ -11,11 +11,9 @@ class ApartmentsService:
     def get_all(self):
         result = []
         all_apartment = self.dao.get_all()
-        for apartment, host, location in all_apartment:
+        for apartment, location in all_apartment:
             apartment = apartment.to_dict()
-            host = host.to_dict()
             location = location.to_dict()
-            apartment.update(host)
             apartment.update(location)
             #
             # features_on = apartments_features_service.get_on(apartment['pk'])

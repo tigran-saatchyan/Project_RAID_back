@@ -1,11 +1,11 @@
 # RAID 3.0 - SKYRENT
 ![alt text](https://img.shields.io/badge/Python-v3.10.6-blue?style=for-the-badge&logo=appveyor "Python")
-![alt text](https://img.shields.io/badge/Flask-v2.2.2-green?style=for-the-badge&logo=appveyor "Flask")
+![alt text](https://img.shields.io/badge/Flask-v2.2.3-green?style=for-the-badge&logo=appveyor "Flask")
 
 ![alt text](https://img.shields.io/badge/Flask%E2%80%93SQLAlchemy-v3.0.3-yellow?style=for-the-badge&logo=appveyor "Python")
 ![alt text](https://img.shields.io/badge/flask%E2%80%93restx-v1.0.6-yellow?style=for-the-badge&logo=appveyor "Python")
 
-![alt text](https://img.shields.io/badge/SQLAlchemy-v2.0.3-yellow?style=for-the-badge&logo=appveyor "Python")
+![alt text](https://img.shields.io/badge/SQLAlchemy-v2.0.4-yellow?style=for-the-badge&logo=appveyor "Python")
 ![alt text](https://img.shields.io/badge/marshmallow-v3.19.0-yellow?style=for-the-badge&logo=appveyor "Python")
 
 ***

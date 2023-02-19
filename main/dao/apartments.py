@@ -15,6 +15,5 @@ class ApartmentsDAO:
     def get_all(self):
         return self.session.query(
             Apartments,
-            Host,
             Location
-        ).select_from(Apartments).join(Host).join(Location).all()
+        ).select_from(Apartments).join(Location).all()
