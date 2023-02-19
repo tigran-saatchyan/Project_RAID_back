@@ -28,7 +28,8 @@ app = create_app(app_config, app)
 register_extensions(app)
 
 
-# Continuous deployment via WebHook
+# Continuous deployment to pythonanywhere via WebHook
+# https://www.youtube.com/watch?v=AZMQVI6Ss64
 @app.route('/git_update', methods=['POST'])
 def git_update():
     if request.method == 'POST':
