@@ -6,8 +6,8 @@ from main.setup_db import db
 from main.views.places import places_ns
 
 
-def create_app(config: Config) -> Flask:
-    application = Flask(__name__)
+def create_app(config: Config, application) -> Flask:
+
     application.config.from_object(config)
     application.app_context().push()
     return application
@@ -19,10 +19,12 @@ def register_extensions(application: Flask):
     api.add_namespace(places_ns)
 
 
-if __name__ == '__main__':
-    app_config = Config()
-    app = create_app(app_config)
+app = Flask(__name__)
 
-    register_extensions(app)
+app_config = Config()
+app = create_app(app_config, app)
 
-    # app.run()
+register_extensions(app)
+
+if __name__ == 'main':
+    app.run()
