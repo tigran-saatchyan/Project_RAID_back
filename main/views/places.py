@@ -27,8 +27,8 @@ class PlacesView(Resource):
     @api.doc(parser=places_parser)
     def get():
         """
-        GET method for PlacesView to get all apartments
-        :return:    -   all_apartment JSON
+        Get all apartments ordered by pk with or without filters
+        response   -   all_apartment JSON
         """
 
         # arguments prepared for filter

@@ -16,7 +16,9 @@ class ApartmentsService:
         :param aid:     -   apartment id (pk)
         :return:        -   ApartmentsService object
         """
-        return self.dao.get_one(aid)
+        apartment = self.dao.get_one(aid)
+
+        return
 
     def get_all(self, city, price_from, pare_to):
         """

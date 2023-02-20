@@ -3,6 +3,7 @@
 from sqlalchemy import func
 
 from main.dao.models.apartments import Apartments
+from main.dao.models.host import Host
 from main.dao.models.location import Location
 
 
@@ -10,7 +11,6 @@ class ApartmentsDAO:
     """
     Apartments Data Access Object
     """
-
     def __init__(self, session):
         self.session = session
 
@@ -20,9 +20,14 @@ class ApartmentsDAO:
         :param aid:     -   apartment id (pk)
         :return:        -   ApartmentsDAO object
         """
-        return self.session.query(Apartments).filter(
+        apartment = self.session.query(
+            Apartments,
+            Location
+        ).select_from(Apartments).join(Location).join(Host).filter(
             Apartments.pk == aid
         ).one()
+
+        return apartment
 
     def get_all(self, city, price_from, pare_to):
         """
@@ -49,5 +54,7 @@ class ApartmentsDAO:
                 Apartments.price <= pare_to
             )
 
-        apartments_by_city = apartments_by_city.all()
+        apartments_by_city = apartments_by_city.order_by(
+            Location.country
+        ).all()
         return apartments_by_city

@@ -26,7 +26,13 @@ def register_extensions(application: Flask):
     :param application:  - flask application
     """
     db.init_app(application)
-    api = Api(application)
+    api = Api(
+        application,
+        version='1.0.0',
+        title='SKYRENT APP API',
+        description='API for SKYRENT service',
+        contact='mr.saatchyan@yandex.com'
+    )
     api.add_namespace(places_ns)
 
 
