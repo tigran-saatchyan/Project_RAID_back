@@ -51,12 +51,12 @@ class PlaceView(Resource):
     Place Class Based View
     """
     @api.doc(parser=place_parser)
-    def get(self, pk):
+    def get(self, apk):
         """
         GET method for PlaceView to get one apartment
         :return:    -   apartment dictionary
         """
-        apartment = apartment_service.get_one(pk)
+        apartment = apartment_service.get_one(apk)
         apartment = apartment.to_dict()
 
         return apartments_schema.dump(apartment), 200
