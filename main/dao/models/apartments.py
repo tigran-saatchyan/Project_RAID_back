@@ -1,11 +1,18 @@
+"""Apartments model and schema"""
+import dataclasses
+
 from marshmallow import Schema, fields
 
-from main.dao.models.host import HostSchema
-from main.dao.models.location import LocationSchema
+# from main.dao.models.host import HostSchema
+# from main.dao.models.location import LocationSchema
 from main.setup_db import db
 
 
+@dataclasses.dataclass
 class Apartments(db.Model):
+    """
+    Apartments model
+    """
     __tablename__ = 'apartments'
     pk = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String)
@@ -19,6 +26,10 @@ class Apartments(db.Model):
     host = db.relationship('Host')
 
     def to_dict(self):
+        """
+        Apartments object to dictionary conversion method
+        :return:  - apartments dictionary
+        """
         return {
             column.name: getattr(self, column.name)
             for column in self.__table__.columns
@@ -29,7 +40,9 @@ class Apartments(db.Model):
 
 
 class ApartmentsSchema(Schema):
-
+    """
+    Apartments Schema
+    """
     pk = fields.Int(dump_only=True)
     title = fields.Str()
     description = fields.Str()
@@ -47,8 +60,10 @@ class ApartmentsSchema(Schema):
     # host_location = fields.Str()
 
     class Meta:
+        """
+        Metaclass for ApartmentsSchema to make schema ordered
+        """
         ordered = True
-
 
 #
 # class ApartmentsSchema(Schema):
@@ -60,15 +75,15 @@ class ApartmentsSchema(Schema):
 #
 #     country = fields.Pluck(LocationSchema, "country")
 #     city = fields.Pluck(LocationSchema, "city")
-    #
-    # features_on = fields.List(fields.Str)
-    # features_off = fields.List(fields.Str)
-    #
-    # host_name = fields.Pluck(HostSchema, "host_name")
-    # host_phone = fields.Pluck(HostSchema, "host_phone")
-    # host_location = fields.Pluck(HostSchema, "host_location")
-    #
-
-    #
-    # class Meta:
-    #     ordered = True
+#
+#     features_on = fields.List(fields.Str)
+#     features_off = fields.List(fields.Str)
+#
+#     host_name = fields.Pluck(HostSchema, "host_name")
+#     host_phone = fields.Pluck(HostSchema, "host_phone")
+#     host_location = fields.Pluck(HostSchema, "host_location")
+#
+#
+#
+#     class Meta:
+#         ordered = True

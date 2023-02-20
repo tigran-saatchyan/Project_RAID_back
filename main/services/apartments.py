@@ -1,14 +1,28 @@
+"""ApartmentsService module"""
+
 from main.dao.apartments import ApartmentsDAO
 
 
 class ApartmentsService:
+    """
+    Apartments service
+    """
     def __init__(self, dao: ApartmentsDAO):
         self.dao = dao
 
     def get_one(self, aid):
+        """
+        Get one apartment
+        :param aid:     -   apartment id (pk)
+        :return:        -   ApartmentsService object
+        """
         return self.dao.get_one(aid)
 
     def get_all(self):
+        """
+        Get all apartments including location
+        :return:  - apartments dictionary
+        """
         result = []
         all_apartment = self.dao.get_all()
         for apartment, location in all_apartment:

@@ -1,3 +1,4 @@
+"""Main application module"""
 import git
 from flask import Flask
 from flask_restx import Api
@@ -8,6 +9,10 @@ from main.views.places import places_ns
 
 
 def create_app() -> Flask:
+    """
+    Create Flask application
+    :return:    - flask application
+    """
     app_config = Config()
     application = Flask(__name__)
     application.config.from_object(app_config)
@@ -16,6 +21,10 @@ def create_app() -> Flask:
 
 
 def register_extensions(application: Flask):
+    """
+    Register extensions for Flask application
+    :param application:  - flask application
+    """
     db.init_app(application)
     api = Api(application)
     api.add_namespace(places_ns)
@@ -29,6 +38,9 @@ register_extensions(app)
 # https://www.youtube.com/watch?v=AZMQVI6Ss64
 @app.route('/git_update', methods=['POST'])
 def git_update():
+    """
+    WebHook for GitHub Continuous Deployment to pythonanywhere
+    """
     repo = git.Repo('./Project_RAID_back')
     origin = repo.remotes.origin
     repo.create_head(

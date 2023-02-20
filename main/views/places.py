@@ -1,4 +1,5 @@
-from flask import request
+"""Places view module"""
+
 from flask_restx import Api, Namespace, Resource, reqparse
 
 from main.container import apartment_service
@@ -19,12 +20,21 @@ places_parser.add_argument('to', type=int, help='Price To')
 
 @places_ns.route('/')
 class PlacesView(Resource):
+    """
+    Places Class Based View
+    """
     @staticmethod
     @api.doc(parser=places_parser)
     def get():
-        filter_city = request.args.get('city')
-        price_from = request.args.get('from')
-        price_to = request.args.get('to')
+        """
+        GET method for PlacesView to get all apartments
+        :return:    -   all_apartment JSON
+        """
+
+        # arguments prepared for filter
+        # filter_city = request.args.get('city')
+        # price_from = request.args.get('from')
+        # price_to = request.args.get('to')
 
         all_apartment = apartment_service.get_all()
 
@@ -37,9 +47,16 @@ place_parser.add_argument('pk', type=str, help='Apartment primary key')
 
 @places_ns.route('/<int:pk>')
 class PlaceView(Resource):
+    """
+    Place Class Based View
+    """
     @api.doc(parser=place_parser)
     def get(self, pk):
+        """
+        GET method for PlaceView to get one apartment
+        :return:    -   apartment dictionary
+        """
         apartment = apartment_service.get_one(pk)
         apartment = apartment.to_dict()
-        print(apartment)
+
         return apartments_schema.dump(apartment), 200

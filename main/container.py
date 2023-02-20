@@ -1,3 +1,5 @@
+"""Container module"""
+
 from main.dao.apartments import ApartmentsDAO
 from main.dao.apartments_features import ApartmentFeaturesDAO
 from main.dao.host import HostDAO
