@@ -18,7 +18,7 @@ class ApartmentsService:
         """
         apartment = self.dao.get_one(aid)
 
-        return
+        return apartment
 
     def get_all(self, city, price_from, pare_to):
         """
