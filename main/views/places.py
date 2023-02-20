@@ -1,5 +1,5 @@
 """Places view module"""
-
+from flask import request
 from flask_restx import Api, Namespace, Resource, reqparse
 
 from main.container import apartment_service
@@ -32,11 +32,15 @@ class PlacesView(Resource):
         """
 
         # arguments prepared for filter
-        # filter_city = request.args.get('city')
-        # price_from = request.args.get('from')
-        # price_to = request.args.get('to')
+        filter_city = request.args.get('city')
+        price_from = request.args.get('from')
+        price_to = request.args.get('to')
 
-        all_apartment = apartment_service.get_all()
+        all_apartment = apartment_service.get_all(
+            filter_city,
+            price_from,
+            price_to
+        )
 
         return apartments_schema.dump(all_apartment), 200
 
