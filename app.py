@@ -1,6 +1,9 @@
 """Main application module"""
+import json
+
 import git
 from flask import Flask
+from flask_cors import CORS
 from flask_restx import Api
 
 from main.config import Config
@@ -17,6 +20,8 @@ def create_app() -> Flask:
     application = Flask(__name__)
     application.config.from_object(app_config)
     application.app_context().push()
+    CORS(application)
+
     return application
 
 
@@ -34,10 +39,11 @@ def register_extensions(application: Flask):
         contact='mr.saatchyan@yandex.com'
     )
     api.add_namespace(places_ns)
+    return api
 
 
 app = create_app()
-register_extensions(app)
+api = register_extensions(app)
 
 
 # Continuous deployment to pythonanywhere via WebHook
@@ -55,6 +61,15 @@ def git_update():
     ).set_tracking_branch(origin.refs.master).checkout()
     origin.pull()
     return '', 200
+
+
+@app.route('/api/')
+def api_docs():
+
+    urlvars = False  # Build query strings in URLs
+    swagger = True  # Export Swagger specifications
+    data = api.as_postman(urlvars=urlvars, swagger=swagger)
+    return json.dumps(data), 200
 
 
 if __name__ == '__main__':
