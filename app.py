@@ -46,7 +46,7 @@ api = register_extensions(app)
 
 # Continuous deployment to pythonanywhere via WebHook
 # https://www.youtube.com/watch?v=AZMQVI6Ss64
-@app.route('/git_update/', methods=['POST'])
+@app.route('/git_update', methods=['POST'])
 def git_update():
     """
     WebHook for GitHub Continuous Deployment to pythonanywhere

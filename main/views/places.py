@@ -42,7 +42,8 @@ class PlacesView(Resource):
             price_to
         )
 
-        return apartments_schema.dump(all_apartment), 200
+        return apartments_schema.dump(all_apartment), 200, \
+            {'access-control-allow-origin': '*'}
 
 
 place_parser = reqparse.RequestParser()
@@ -63,4 +64,5 @@ class PlaceView(Resource):
         apartment = apartment_service.get_one(apk)
         apartment = apartment.to_dict()
 
-        return apartments_schema.dump(apartment), 200
+        return apartments_schema.dump(apartment), 200, \
+            {'access-control-allow-origin': '*'}
