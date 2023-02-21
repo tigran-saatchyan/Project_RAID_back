@@ -20,7 +20,10 @@ def create_app() -> Flask:
     application = Flask(__name__)
     application.config.from_object(app_config)
     application.app_context().push()
-    CORS(application, supports_credentials=True)
+    CORS(
+        application, supports_credentials=True, resources={r"/*": {
+            "origins": "*"}}
+        )
     return application
 
 
@@ -47,7 +50,7 @@ api = register_extensions(app)
 
 # Continuous deployment to pythonanywhere via WebHook
 # https://www.youtube.com/watch?v=AZMQVI6Ss64
-@app.route('/git_update', methods=['POST'])
+@app.route('/git_update/', methods=['POST'])
 def git_update():
     """
     WebHook for GitHub Continuous Deployment to pythonanywhere
