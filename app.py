@@ -20,8 +20,7 @@ def create_app() -> Flask:
     application = Flask(__name__)
     application.config.from_object(app_config)
     application.app_context().push()
-    CORS(application)
-
+    CORS(application, supports_credentials=True)
     return application
 
 
@@ -31,15 +30,15 @@ def register_extensions(application: Flask):
     :param application:  - flask application
     """
     db.init_app(application)
-    api = Api(
+    api_config = Api(
         application,
         version='1.0.0',
         title='SKYRENT APP API',
         description='API for SKYRENT service',
         contact='mr.saatchyan@yandex.com'
     )
-    api.add_namespace(places_ns)
-    return api
+    api_config.add_namespace(places_ns)
+    return api_config
 
 
 app = create_app()
@@ -65,7 +64,10 @@ def git_update():
 
 @app.route('/api/')
 def api_docs():
-
+    """
+    API to Postmen Collection
+    :return:
+    """
     urlvars = False  # Build query strings in URLs
     swagger = True  # Export Swagger specifications
     data = api.as_postman(urlvars=urlvars, swagger=swagger)

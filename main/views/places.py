@@ -20,7 +20,6 @@ places_parser.add_argument('to', type=int, help='Price To')
 
 
 @places_ns.route('/')
-@cross_origin()
 class PlacesView(Resource):
     """
     Places Class Based View
@@ -52,7 +51,6 @@ place_parser.add_argument('pk', type=str, help='Apartment primary key')
 
 
 @places_ns.route('/<int:pk>')
-@cross_origin()
 class PlaceView(Resource):
     """
     Place Class Based View
