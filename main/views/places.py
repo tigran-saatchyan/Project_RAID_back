@@ -1,6 +1,5 @@
 """Places view module"""
 from flask import request
-from flask_cors import cross_origin
 from flask_restx import Api, Namespace, Resource, reqparse
 
 from main.container import apartment_service
