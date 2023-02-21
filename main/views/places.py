@@ -2,7 +2,7 @@
 from flask import request
 from flask_restx import Api, Namespace, Resource, reqparse
 
-from main.container import apartment_service
+from main.container import apartment_service, apartments_features_service
 from main.dao.models.apartments import ApartmentsSchema
 
 places_ns = Namespace('places', 'Places namespace')
@@ -18,7 +18,9 @@ places_parser.add_argument('from', type=int, help='Price From:')
 places_parser.add_argument('to', type=int, help='Price To')
 
 
+@api.response(200, 'Success')
 @places_ns.route('/')
+# @cross_origin()
 class PlacesView(Resource):
     """
     Places Class Based View
@@ -45,22 +47,27 @@ class PlacesView(Resource):
         return apartments_schema.dump(all_apartment), 200
 
 
-place_parser = reqparse.RequestParser()
-place_parser.add_argument('pk', type=str, help='Apartment primary key')
-
-
-@places_ns.route('/<int:pk>')
+@api.response(200, 'Success')
+@api.response(404, 'Not Found')
+@places_ns.route('/<int:apk>')
 class PlaceView(Resource):
     """
     Place Class Based View
     """
-    @api.doc(parser=place_parser)
-    def get(self, apk):
+
+    @staticmethod
+    def get(apk):
         """
-        GET method for PlaceView to get one apartment
+        Get detailed data for one apartment by PK
         :return:    -   apartment dictionary
         """
-        apartment = apartment_service.get_one(apk)
-        apartment = apartment.to_dict()
 
-        return apartments_schema.dump(apartment), 200
+        apartment = apartment_service.get_one(apk)
+        features_on, features_off = \
+            apartments_features_service.get_by_apartment_id(apk)
+
+        print(features_on)
+        print(features_off)
+        # if apartment is None or not apartment:
+        #     return "", 404
+        # return apartments_schema.dump(apartment), 200
