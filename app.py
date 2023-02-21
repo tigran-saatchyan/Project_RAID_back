@@ -3,7 +3,6 @@ import json
 
 import git
 from flask import Flask
-from flask_cors import CORS
 from flask_restx import Api
 
 from main.config import Config
@@ -20,10 +19,7 @@ def create_app() -> Flask:
     application = Flask(__name__)
     application.config.from_object(app_config)
     application.app_context().push()
-    CORS(
-        application, supports_credentials=True, resources={r"/*": {
-            "origins": "*"}}
-        )
+
     return application
 
 
