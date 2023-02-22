@@ -66,7 +66,31 @@ class ApartmentsSchema(Schema):
         """
         ordered = True
 
-#
+
+class ApartmentSchema(Schema):
+    """
+    Apartment Schema
+    """
+    pk = fields.Int(dump_only=True)
+    title = fields.Str()
+    description = fields.Str()
+    picture_url = fields.Url()
+    price = fields.Int()
+
+    country = fields.Str()
+    city = fields.Str()
+
+    features_on = fields.List(fields.Str)
+    features_off = fields.List(fields.Str)
+
+    host_name = fields.Str()
+    host_phone = fields.Str()
+    host_location = fields.Str()
+
+    class Meta:
+        ordered = True
+
+# try to make schema using Nested/Pluck
 # class ApartmentsSchema(Schema):
 #     pk = fields.Int(dump_only=True)
 #     title = fields.Str()

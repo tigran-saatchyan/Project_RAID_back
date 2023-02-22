@@ -14,22 +14,22 @@ class ApartmentsDAO:
     def __init__(self, session):
         self.session = session
 
-    def get_one(self, aid):
+    def get_one(self, aid: int):
         """
         Get one apartment
         :param aid:     -   apartment id (pk)
         :return:        -   ApartmentsDAO object
         """
-        apartment = self.session.query(
+        apartment_info = self.session.query(
             Apartments,
-            Location
+            Location,
+            Host
         ).select_from(Apartments).join(Location).join(Host).filter(
             Apartments.pk == aid
         ).one()
+        return apartment_info
 
-        return apartment
-
-    def get_all(self, city, price_from, pare_to):
+    def get_all(self, city: str, price_from: int, pare_to: int):
         """
         Get all apartments filtered by city
         :return:  - ApartmentsDAO object

@@ -10,17 +10,21 @@ class ApartmentsService:
     def __init__(self, dao: ApartmentsDAO):
         self.dao = dao
 
-    def get_one(self, aid):
+    def get_one(self, aid: int) -> dict:
         """
         Get one apartment
         :param aid:     -   apartment id (pk)
         :return:        -   ApartmentsService object
         """
-        apartment = self.dao.get_one(aid)
+        apartment_info = self.dao.get_one(aid)
+        apartment, location, host = apartment_info
+        apartment = apartment.to_dict()
+        apartment.update(location.to_dict())
+        apartment.update(host.to_dict())
 
         return apartment
 
-    def get_all(self, city, price_from, pare_to):
+    def get_all(self, city: str, price_from: int, pare_to: int) -> list:
         """
         Get all apartments including location
         :return:  - apartments dictionary

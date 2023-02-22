@@ -1,21 +1,37 @@
 """Places view module"""
 from flask import request
 from flask_restx import Api, Namespace, Resource, reqparse
+from sqlalchemy.orm.exc import NoResultFound
 
-from main.container import apartment_service
-from main.dao.models.apartments import ApartmentsSchema
+from main.constants import CORS_HEADER
+from main.container import apartment_service, apartments_features_service
+from main.dao.models.apartments import ApartmentSchema, ApartmentsSchema
 
-places_ns = Namespace('places', 'Places namespace')
+places_ns = Namespace('places', 'Returns apartments sorted by country')
 
-apartment_schema = ApartmentsSchema()
+apartment_schema = ApartmentSchema()
 apartments_schema = ApartmentsSchema(many=True)
 
 api = Api()
 
 places_parser = reqparse.RequestParser()
-places_parser.add_argument('city', type=str, help='Filter by selected City')
-places_parser.add_argument('from', type=int, help='Price From:')
-places_parser.add_argument('to', type=int, help='Price To')
+places_parser.add_argument(
+    'city',
+    type=str,
+    help='(optional) Filter by selected City'
+)
+
+places_parser.add_argument(
+    'from',
+    type=int,
+    help='(optional) Price From:'
+)
+
+places_parser.add_argument(
+    'to',
+    type=int,
+    help='(optional) Price To'
+)
 
 
 @places_ns.route('/')
@@ -23,15 +39,14 @@ class PlacesView(Resource):
     """
     Places Class Based View
     """
+
     @staticmethod
     @api.doc(parser=places_parser)
+    @places_ns.response(200, 'Success')
     def get():
         """
         Get all apartments ordered by pk with or without filters
-        response   -   all_apartment JSON
         """
-
-        # arguments prepared for filter
         filter_city = request.args.get('city')
         price_from = request.args.get('from')
         price_to = request.args.get('to')
@@ -42,12 +57,15 @@ class PlacesView(Resource):
             price_to
         )
 
-        return apartments_schema.dump(all_apartment), 200, \
-            {'access-control-allow-origin': '*'}
+        return apartments_schema.dump(all_apartment), 200, CORS_HEADER
 
 
 place_parser = reqparse.RequestParser()
-place_parser.add_argument('pk', type=str, help='Apartment primary key')
+place_parser.add_argument(
+    'pk',
+    type=str,
+    help='Apartment primary key'
+)
 
 
 @places_ns.route('/<int:pk>')
@@ -55,14 +73,32 @@ class PlaceView(Resource):
     """
     Place Class Based View
     """
-    @api.doc(parser=place_parser)
-    def get(self, apk):
-        """
-        GET method for PlaceView to get one apartment
-        :return:    -   apartment dictionary
-        """
-        apartment = apartment_service.get_one(apk)
-        apartment = apartment.to_dict()
 
-        return apartments_schema.dump(apartment), 200, \
-            {'access-control-allow-origin': '*'}
+    # @api.doc(parser=place_parser)
+    @staticmethod
+    @places_ns.response(200, 'Success')
+    @places_ns.response(404, 'Apartment not found')
+    def get(pk):
+        """
+        Get detailed data for one apartment by apartments PK
+
+        """
+        try:
+            apartment = apartment_service.get_one(pk)
+        except NoResultFound:
+            return {"error": "Apartment not found"}, 404, CORS_HEADER
+
+        features_on, features_off = \
+            apartments_features_service.get_by_apartment_id(pk)
+
+        apartment['features_on'] = [
+            feature[0]
+            for feature in features_on
+        ]
+
+        apartment['features_off'] = [
+            feature[0]
+            for feature in features_off
+        ]
+
+        return apartment_schema.dump(apartment), 200, CORS_HEADER

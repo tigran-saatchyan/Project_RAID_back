@@ -12,7 +12,7 @@ class HostService:
 
     def get_one(self, hid):
         """
-        Get one feature
+        Get one host by host id
         :param hid:     -   host id
         :return:        -   HostService object
         """
