@@ -1,5 +1,5 @@
 """Places view module"""
-from flask import request
+from flask import jsonify, request
 from flask_restx import Api, Namespace, Resource, reqparse
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -43,6 +43,7 @@ class PlacesView(Resource):
     @staticmethod
     @api.doc(parser=places_parser)
     @places_ns.response(200, 'Success')
+    @places_ns.response(400, 'Bad Request')
     def get():
         """
         Get all apartments ordered by pk with or without filters
@@ -50,6 +51,14 @@ class PlacesView(Resource):
         filter_city = request.args.get('city')
         price_from = request.args.get('from')
         price_to = request.args.get('to')
+        try:
+            filter_city = str(filter_city) if filter_city else 0
+            price_from = int(price_from) if price_from else 0
+            price_to = int(price_to) if price_to else 0
+        except ValueError or TypeError :
+            return jsonify(
+                {"error": "Wrong parameter type."}
+            ), 400, CORS_HEADER
 
         all_apartment = apartment_service.get_all(
             filter_city,
@@ -73,8 +82,6 @@ class PlaceView(Resource):
     """
     Place Class Based View
     """
-
-    # @api.doc(parser=place_parser)
     @staticmethod
     @places_ns.response(200, 'Success')
     @places_ns.response(404, 'Apartment not found')
