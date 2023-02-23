@@ -10,6 +10,7 @@
 
 
 [![Pylint](https://github.com/tigran-saatchyan/Project_RAID_back/actions/workflows/pylint.yml/badge.svg?branch=master)](https://github.com/tigran-saatchyan/Project_RAID_back/actions/workflows/pylint.yml)
+[![Automated API tests using Postman CLI](https://github.com/tigran-saatchyan/Project_RAID_back/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/tigran-saatchyan/Project_RAID_back/actions/workflows/main.yml)
 ***
 REST API MVP сервиса доски объявлений по 
 длительной аренде жилья для релокации. Минимальная версия 
