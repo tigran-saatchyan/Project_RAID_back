@@ -8,6 +8,8 @@
 ![alt text](https://img.shields.io/badge/SQLAlchemy-v2.0.4-yellow?style=for-the-badge&logo=appveyor "Python")
 ![alt text](https://img.shields.io/badge/marshmallow-v3.19.0-yellow?style=for-the-badge&logo=appveyor "Python")
 
+
+[![Pylint](https://github.com/tigran-saatchyan/Project_RAID_back/actions/workflows/pylint.yml/badge.svg?branch=master)](https://github.com/tigran-saatchyan/Project_RAID_back/actions/workflows/pylint.yml)
 ***
 REST API MVP сервиса доски объявлений по 
 длительной аренде жилья для релокации. Минимальная версия 
@@ -74,5 +76,4 @@ host_location   : str        # адрес хоста
 - [x]  Всей ленты объявлений для главной страниц
 - [x]  Списка объявлений с фильтром по городу и цене
 - [x]  Подробной информации об объявлении
-
 ---
