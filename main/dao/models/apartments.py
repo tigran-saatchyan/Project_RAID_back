@@ -29,8 +29,7 @@ class Apartments(db.Model):
         :return:  - apartments dictionary
         """
         return {
-            column.name: getattr(self, column.name)
-            for column in self.__table__.columns
+            col.name: getattr(self, col.name) for col in self.__table__.columns
         }
 
     def __repr__(self):

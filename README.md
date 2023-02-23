@@ -9,10 +9,12 @@
 ![alt text](https://img.shields.io/badge/marshmallow-v3.19.0-yellow?style=for-the-badge&logo=appveyor "Python")
 
 ***
-Разработать MVP сервиса доски объявлений по 
+REST API MVP сервиса доски объявлений по 
 длительной аренде жилья для релокации. Минимальная версия 
-сервиса будет позволять просматривать список, просматривать 
+сервиса позволяет просматривать список, просматривать 
 карточку, фильтровать и просматривать контакты арендатора.
+
+Бэкенд развёрнут на [pythonanywhere.com](https://pythonistic.pythonanywhere.com/)
 
 ### Бэкенд
 
@@ -24,31 +26,32 @@
 Ключи модели и отдаваемого JSON:
 
 ```python
-pk: int  # первичный ключ
+pk              : int        # первичный ключ
 
-title: str # название объекта
-description: str  # описание объекта
+title           : str        # название объекта
+description     : str        # описание объекта
 
-picture_url: str  # путь к картинке
+picture_url     : str        # путь к картинке
 
-price: int # цена за месяц
+price           : int        # цена за месяц
 
-country: str # страна
-city: str # город
+country         : str        # страна
+city            : str        # город
 
-features_on: list[str] # что есть
-features_off: list[str] # чего нет
+features_on     : list[str]  # что есть
+features_off    : list[str]  # чего нет
+
+host_name       : str        # имя хозяина
+host_phone      : str        # телефон хоста
+host_location   : str        # адрес хоста
 ```
-
-Актуальный JSON с данными
-
-[https://drive.google.com/file/d/1tKZVENJkEZDwprhte62iuI1a8rj254W1/view?usp=sharing](https://drive.google.com/file/d/1tKZVENJkEZDwprhte62iuI1a8rj254W1/view?usp=sharing)
+[JSON с тестовыми данными](https://drive.google.com/file/d/1tKZVENJkEZDwprhte62iuI1a8rj254W1/view?usp=sharing)
 
 **Эндпоинты для списка**
 
 - [x]  Добавьте эндпоинт `GET /places` который возвращает все места
 - [x]  Добавьте к нему фильтрацию по городу `GET /places?city=<city>`
-- [x]  Добавьте к нему фильтрацию по цене `GET /places?from=1,to=1000`
+- [x]  Добавьте к нему фильтрацию по цене `GET /places?from=1&to=1000`
 
 **Эндпоинты для сущности**
 
@@ -56,8 +59,20 @@ features_off: list[str] # чего нет
 
 **Обработка ошибок**
 
-- [x]  Добавьте обработку 404 ошибки на ваше усмотрение
+- [x]  Обработка 400 ошибки
+- [x]  Обработка 404 ошибки
+- [ ]  Обработка 500 ошибки
 
-- [ ]  Добавьте обработку 500 ошибки на ваше усмотрение
+---
+
+### Тестирование
+
+**Тестирование бэка**
+
+Разверните бэкенд и протестируйте с помощью postman запросы на получение
+
+- [x]  Всей ленты объявлений для главной страниц
+- [x]  Списка объявлений с фильтром по городу и цене
+- [x]  Подробной информации об объявлении
 
 ---

@@ -18,9 +18,3 @@ apartments_features_dao = ApartmentFeaturesDAO(db.session)
 apartments_features_service = ApartmentFeaturesService(
     apartments_features_dao
 )
-
-# apartment_dao = ApartmentsDAO(db.session)
-# apartment_service = ApartmentsService(apartment_dao)
-#
-# apartment_dao = ApartmentsDAO(db.session)
-# apartment_service = ApartmentsService(apartment_dao)

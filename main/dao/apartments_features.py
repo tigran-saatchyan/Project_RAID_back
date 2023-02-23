@@ -8,30 +8,24 @@ class ApartmentFeaturesDAO:
     """
     ApartmentFeatures Data Access Object
     """
+
     def __init__(self, session):
         self.session = session
 
     def get_by_apartment_id(self, aid):
         """
-        Get all features "ON" by apartment id
+        Get all features by apartment id
         :param aid:     -   apartment id {pk)
         :return:        -   ApartmentFeaturesDAO object
         """
-        features_on = self.session.query(
-            Features.feature,
-            ApartmentFeatures.is_on
+        features = self.session.query(
+            Features.feature, ApartmentFeatures.is_on
         ).join(Features).filter(
-            ApartmentFeatures.apartment_id == aid,
-            ApartmentFeatures.is_on == 1
+            ApartmentFeatures.apartment_id == aid
         ).all()
 
-        features_off = self.session.query(
-            Features.feature,
-            ApartmentFeatures.is_on
-        ).join(Features).filter(
-            ApartmentFeatures.apartment_id == aid,
-            ApartmentFeatures.is_on == 0
-        ).all()
+        features_on = [feature for feature in features if feature[1] == 1]
+        features_off = [feature for feature in features if feature[1] == 0]
 
         return features_on, features_off
 
@@ -41,9 +35,7 @@ class ApartmentFeaturesDAO:
         :param afid:    -   apartment_feature id
         :return:        -   ApartmentFeaturesDAO object
         """
-        return self.session.query(ApartmentFeatures).filter(
-            ApartmentFeatures.id == afid
-        ).one()
+        return self.session.query(ApartmentFeatures).filter(id == afid).one()
 
     def get_all(self):
         """

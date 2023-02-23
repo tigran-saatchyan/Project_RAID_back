@@ -18,25 +18,15 @@ class ApartmentsService:
         """
         apartment_info = self.dao.get_one(aid)
         apartment, location, host = apartment_info
-        apartment = apartment.to_dict()
-        apartment.update(location.to_dict())
-        apartment.update(host.to_dict())
-
-        return apartment
+        return {**apartment.to_dict(), **location.to_dict(), **host.to_dict()}
 
     def get_all(self, city: str, price_from: int, pare_to: int) -> list:
         """
         Get all apartments including location
         :return:  - apartments dictionary
         """
-        result = []
         all_apartment = self.dao.get_all(city, price_from, pare_to)
 
-        for apartment, location in all_apartment:
-            apartment = apartment.to_dict()
-            location = location.to_dict()
-            apartment.update(location)
-
-            result.append(apartment)
-
-        return result
+        return [
+            {**apartment.to_dict(), **location.to_dict()}
+            for apartment, location in all_apartment]

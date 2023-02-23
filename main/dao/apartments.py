@@ -20,41 +20,33 @@ class ApartmentsDAO:
         :param aid:     -   apartment id (pk)
         :return:        -   ApartmentsDAO object
         """
-        apartment_info = self.session.query(
+        query = self.session.query(
             Apartments,
             Location,
             Host
         ).select_from(Apartments).join(Location).join(Host).filter(
             Apartments.pk == aid
         ).one()
-        return apartment_info
+        return query
 
     def get_all(self, city: str, price_from: int, pare_to: int):
         """
         Get all apartments filtered by city
         :return:  - ApartmentsDAO object
         """
-        apartments_by_city = self.session.query(
+        query = self.session.query(
             Apartments,
             Location
         ).select_from(Apartments).join(Location)
 
         if city:
-            apartments_by_city = apartments_by_city.filter(
-                func.lower(Location.city) == func.lower(city)
-            )
+            query = query.filter(func.lower(Location.city) == func.lower(city))
 
         if price_from:
-            apartments_by_city = apartments_by_city.filter(
-                Apartments.price >= price_from
-            )
+            query = query.filter(Apartments.price >= price_from)
 
         if pare_to:
-            apartments_by_city = apartments_by_city.filter(
-                Apartments.price <= pare_to
-            )
+            query = query.filter(Apartments.price <= pare_to)
 
-        apartments_by_city = apartments_by_city.order_by(
-            Location.country
-        ).all()
-        return apartments_by_city
+        query = query.order_by(Location.country).all()
+        return query
