@@ -18,7 +18,7 @@ places_parser = reqparse.RequestParser()
 places_parser.add_argument(
     'city',
     type=str,
-    help='(optional) Filter by selected City'
+    help='(optional) Filter by selected City (max 255 char)'
 )
 
 places_parser.add_argument(
@@ -44,6 +44,7 @@ class PlacesView(Resource):
     @api.doc(parser=places_parser)
     @places_ns.response(200, 'Success')
     @places_ns.response(400, 'Bad Request')
+    @places_ns.response(404, 'Not Found')
     def get():
         """
         Get all apartments ordered by pk with or without filters
@@ -51,14 +52,21 @@ class PlacesView(Resource):
         filter_city = request.args.get('city')
         price_from = request.args.get('from')
         price_to = request.args.get('to')
+
         try:
-            filter_city = str(filter_city) if filter_city else 0
+            if not filter_city or (filter_city.isalpha() and len(
+                    filter_city
+            ) <= 255):
+                pass
+            else:
+                raise TypeError
+
             price_from = int(price_from) if price_from else 0
             price_to = int(price_to) if price_to else 0
-        except ValueError or TypeError :
-            return jsonify(
-                {"error": "Wrong parameter type."}
-            ), 400, CORS_HEADER
+        except ValueError:
+            return {"ValueError": "Wrong parameter value."}, 400, CORS_HEADER
+        except TypeError :
+            return {"TypeError": "Wrong parameter type."}, 400, CORS_HEADER
 
         all_apartment = apartment_service.get_all(
             filter_city,
