@@ -35,7 +35,9 @@ class ApartmentFeaturesDAO:
         :param afid:    -   apartment_feature id
         :return:        -   ApartmentFeaturesDAO object
         """
-        return self.session.query(ApartmentFeatures).filter(id == afid).one()
+        return self.session.query(ApartmentFeatures).filter(
+            ApartmentFeatures.id == afid
+        ).one()
 
     def get_all(self):
         """
