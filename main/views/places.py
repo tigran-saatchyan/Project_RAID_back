@@ -1,5 +1,5 @@
 """Places view module"""
-from flask import jsonify, request
+from flask import request
 from flask_restx import Api, Namespace, Resource, reqparse
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -85,7 +85,7 @@ place_parser.add_argument(
 )
 
 
-@places_ns.route('/<int:pk>')
+@places_ns.route('/<int:apk>')
 class PlaceView(Resource):
     """
     Place Class Based View
@@ -93,18 +93,18 @@ class PlaceView(Resource):
     @staticmethod
     @places_ns.response(200, 'Success')
     @places_ns.response(404, 'Apartment not found')
-    def get(pk):
+    def get(apk):
         """
         Get detailed data for one apartment by apartments PK
 
         """
         try:
-            apartment = apartment_service.get_one(pk)
+            apartment = apartment_service.get_one(apk)
         except NoResultFound:
             return {"error": "Apartment not found"}, 404, CORS_HEADER
 
         features_on, features_off = \
-            apartments_features_service.get_by_apartment_id(pk)
+            apartments_features_service.get_by_apartment_id(apk)
 
         apartment['features_on'] = [
             feature[0]

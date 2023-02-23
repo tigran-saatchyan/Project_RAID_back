@@ -78,6 +78,7 @@ class ApartmentSchema(Schema):
     host_phone = fields.Str()
     host_location = fields.Str()
 
+    @dataclasses.dataclass
     class Meta:
         """
         Metaclass for ApartmentSchema to make schema ordered
