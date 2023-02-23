@@ -1,0 +1,2172 @@
+{
+	"info": {
+		"_postman_id": "891523a6-41fc-4c7e-9bb0-b616ecd974fc",
+		"name": "RAID",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Всей ленты объявлений для главной страниц",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ebd0670-efac-4124-94ea-58498442605f",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "3585fc73-ce2d-471e-85a3-b73ba2c376a9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://pythonistic.pythonanywhere.com/places"
+			},
+			"response": []
+		},
+		{
+			"name": "Status code 404 Not Found Запрос к несуществуещей карточке отеля",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7af17b9-1dc9-490d-8fc5-3cc1f8fb635d",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "dc890db3-58e4-4b7d-a4bc-269de83b25bf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "a6e0fd1a-ce81-46b2-84f8-bbab2149beb8",
+							"key": "pk",
+							"value": "21",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по городу",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f891296-efc7-4cd8-a3c8-a2bc01ff8016",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "e40b060f-bf8a-4af1-9b37-dcc947928882",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?city=athens",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "athens"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по городу (не правильный формат)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f891296-efc7-4cd8-a3c8-a2bc01ff8016",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 400 for Bad Request\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "7cb5b1c5-d4db-4f24-88e3-3fa314acbe11",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?city=!2123",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "!2123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по цене \"от\" (from)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bedd1ef0-1cbb-4eaa-8932-044fb2ade419",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "e442ffb5-4f0e-4682-bec6-b0317d7e2f1a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по цене \"от\" (from) (ввод не числовых данных)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bedd1ef0-1cbb-4eaa-8932-044fb2ade419",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 400 for Bad Request\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "42f8f515-b7fb-4a34-9c99-12b24f8bfb29",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=йцук",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "йцук"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по цене \"до\" (to)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be5be1ef-7b29-45b6-8a3a-bcfb02f17de9",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "ac5a87ef-e962-4ace-aa9b-5e43f704a7d2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по цене \"до\" (to) (ввод не числовых данных)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be5be1ef-7b29-45b6-8a3a-bcfb02f17de9",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "1e9e46ae-e2e5-4e4f-97a9-884bcce05070",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по цене и городу (коректные данные)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be5be1ef-7b29-45b6-8a3a-bcfb02f17de9",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "4c0d370d-9de5-41d5-a4c2-04fbf8423796",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=200&to=390&city=athens",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "200"
+						},
+						{
+							"key": "to",
+							"value": "390",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "athens",
+							"type": "text"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a76ad20-1341-43d5-82be-66eaf61b5246",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "b2829c78-d892-4cc4-ade9-694601d8690f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "051d329b-7a41-4030-9fb9-55eaf345faaf",
+							"key": "pk",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b88b348-1e69-4569-8d72-d9d2a505d166",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "15662970-8e02-4b07-8e59-39bdca60bb55",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "eb3b65d8-1eaf-44fa-9ac9-ebfa7ff3dbe2",
+							"key": "pk",
+							"value": "2",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ee6b4b6c-cb13-4549-9f99-f69afca8a478",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "505883a9-a239-43f8-8d0e-64bb4a557e88",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "8555d9ba-e98d-4f39-bc02-534b3bb1c718",
+							"key": "pk",
+							"value": "3",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b87b87cf-009b-470a-9635-635b685a1761",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "0b336a0d-ccb8-4873-b6b8-019c72c06adf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "3030787e-8562-41d5-b7ba-e555d6f07b2d",
+							"key": "pk",
+							"value": "4",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65d22296-9c97-4ccd-b00c-662bae6546aa",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "962bbb31-081f-41f7-9f6f-538b20e7b273",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "eff096a7-8268-4984-b81f-d6cc51401883",
+							"key": "pk",
+							"value": "5",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "01b3226f-55f7-4da4-80e3-a10a32c0771c",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "5de66193-da8b-44f1-b86a-e45e815ba4bd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "a8097c5d-58d5-47aa-baa6-f239d4d10217",
+							"key": "pk",
+							"value": "6",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e56191e-e182-4fab-9e4d-fe40ea73da22",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "45eedc0b-77b5-40b6-870f-b5f343873a68",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "766c7813-fc5d-4809-8d6f-f6a44496a9f1",
+							"key": "pk",
+							"value": "7",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "975df27f-4518-47c6-9162-1e6f6805e7a3",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "4d12698c-bde0-4969-81d7-1a1975d340f4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "43f47f98-ad6b-49d8-8a2d-292e95433155",
+							"key": "pk",
+							"value": "8",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 9",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f60c7086-86d2-4e08-ac09-e79d3cb6c270",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "317d12e5-eacb-4582-a6d5-7deab9814cb7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "32241f51-6c57-4ae5-aef5-bb5462eafd4c",
+							"key": "pk",
+							"value": "9",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "007b35ea-80a5-4a2e-b70b-1ba68a0e0b85",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "8dca869c-cbe8-45f2-a56c-e2e6550fe277",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "7ff94cdc-5db2-4629-8fbc-0031815a68ce",
+							"key": "pk",
+							"value": "10",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 11",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c312bed4-1f08-4340-9cda-e2759773b87c",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2e5ec1d4-a93e-4af0-ae13-0295ffd15129",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "b62cc911-8ab8-4297-b316-c1f526f90d69",
+							"key": "pk",
+							"value": "11",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a6928fe3-e40e-4d72-bfa5-c99fcb6b4e33",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "39caa073-d279-4125-a7b5-573466fff22c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "5cede0a3-bf93-40b8-8d5a-1e1388ce4965",
+							"key": "pk",
+							"value": "12",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 13",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d2de08a-773c-456b-a8c6-12f495b5e8c8",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "22dabcbc-73ca-47be-9db0-0190ee41b448",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "e2b0a116-2042-4add-ad57-837705946ff0",
+							"key": "pk",
+							"value": "13",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 14",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1c49a7d-a872-4e74-810e-9e7eadf784f2",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "97a2abe1-ec1e-4b2f-af9f-fc805cd54de4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "985e970d-7d25-449a-9228-812a242a856b",
+							"key": "pk",
+							"value": "14",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 15",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3cee577-2f55-409e-95f8-bf2c4ef98805",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "d21f1a2b-049d-43c5-b00c-7a0b82e0e02a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "eb1ab002-76b1-42c0-97d4-1e8c96764559",
+							"key": "pk",
+							"value": "15",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 16",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "174dcbf1-ff6b-4abd-b231-b77c17f39b4f",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "69710801-a419-4de2-8dfb-ace2deabef81",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "92585b6b-6c97-47e1-9f4b-49bc06aa4984",
+							"key": "pk",
+							"value": "16",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 17",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "02d4e174-ad90-4908-94ae-f8d657e26c90",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "c1e53a22-899e-4ebe-be6a-55f64f7bb28d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "b3ec003e-3afe-4a98-914b-d4d9fc021035",
+							"key": "pk",
+							"value": "17",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 18",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ad2a716-a45d-405d-a930-864aa5fca866",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "67b770c2-f157-421d-9d81-fbe4adb8119f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "97daa1fc-8497-494a-b0b1-9d67848c588f",
+							"key": "pk",
+							"value": "18",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 19",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38d55d39-915e-4d05-8d12-0968062ac785",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "b9101473-9ab4-4631-b7be-40b053e6a6ec",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "18b62c94-76c8-474a-a7dc-75bd8c86e461",
+							"key": "pk",
+							"value": "19",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подробной информации о отеле 20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9fd07f69-e4d2-4803-89b3-ea42c47890b5",
+						"exec": [
+							"// Check that a response header is present:\r",
+							"pm.test(\"CORS header is present\", () => {\r",
+							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"});\r",
+							"\r",
+							"// Test for a response header having a particular value:\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"});\r",
+							"\r",
+							"// Testing response times\r",
+							"// Test for the response time to be within a specified range:\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// Asserting a value type\r",
+							"// Test the type of any part of the response:\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "cc2f5849-c6ee-49c9-ab4f-6124dd03e26d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "40e40572-cea3-4a4b-937a-0ad766458dc8",
+							"key": "pk",
+							"value": "20",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2d35b667-b90f-45ad-81d8-0c451d37274c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "56fc3181-6a62-4417-806d-e92884f527d4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "22b9596c-ff26-4078-a5f4-8d33a3754640",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
