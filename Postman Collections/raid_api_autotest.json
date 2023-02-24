@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8ebd0670-efac-4124-94ea-58498442605f",
+						"id": "e3de5b58-2454-4484-85ae-1b06cd5be914",
 						"exec": [
 							"// Check that a response header is present:\r",
 							"pm.test(\"CORS header is present\", () => {\r",
@@ -2152,7 +2152,7 @@
 	],
 	"variable": [
 		{
-			"id": "3f8d9272-8599-4ada-9ab8-7e9b3d3cac47",
+			"id": "fa2cc8d4-ef55-490b-8c62-d313bb492ac9",
 			"value": "",
 			"type": "string"
 		}
