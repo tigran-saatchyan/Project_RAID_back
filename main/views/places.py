@@ -57,12 +57,6 @@ class PlacesView(Resource):
 
             price_from = int(request.args.get('from', 0, int))
             price_to = request.args.get('to', 0, int)
-            try:
-                price_to = int(request.args.get('to', 0))
-            except ValueError:
-                raise ValueError(
-                    "Invalid value for 'to' parameter: must be an integer"
-                    )
 
             if not filter_city or (
                     filter_city.isalpha() and len(filter_city) <= 255
