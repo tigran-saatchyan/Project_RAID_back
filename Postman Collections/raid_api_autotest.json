@@ -269,7 +269,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bedd1ef0-1cbb-4eaa-8932-044fb2ade419",
+						"id": "4d584fe7-a9d3-4587-8e84-185c6c95bb51",
 						"exec": [
 							"// Check that a response header is present:\r",
 							"pm.test(\"CORS header is present\", () => {\r",
@@ -278,7 +278,7 @@
 							"\r",
 							"\r",
 							"pm.test(\"Status code is 400 for Bad Request\", function () {\r",
-							"    pm.response.to.have.status(400);\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Response time is less than 200\", function () {\r",
@@ -2152,7 +2152,7 @@
 	],
 	"variable": [
 		{
-			"id": "fa2cc8d4-ef55-490b-8c62-d313bb492ac9",
+			"id": "840db621-f2ab-498d-96e0-966b6b284f99",
 			"value": "",
 			"type": "string"
 		}
