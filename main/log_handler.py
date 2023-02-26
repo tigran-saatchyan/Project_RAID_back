@@ -2,9 +2,12 @@
 
 import logging
 import os
+from pathlib import Path
+
+THIS_FOLDER = Path(__file__).parent.resolve()
 
 logging.basicConfig(
-    filename=os.path.join('logs', 'main.log'),
+    filename=os.path.join(THIS_FOLDER, 'logs', 'main.log'),
     filemode='a',
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     level=logging.DEBUG
@@ -16,8 +19,8 @@ services_logger.setLevel(logging.INFO)
 
 # create file handler and set level to debug
 services_fh = logging.FileHandler(
-    os.path.join('logs', 'services', 'services.log')
-    )
+    os.path.join(THIS_FOLDER, 'logs', 'services', 'services.log')
+)
 services_fh.setLevel(logging.INFO)
 
 # create formatter
@@ -36,7 +39,14 @@ dao_logger = logging.getLogger('dao')
 dao_logger.setLevel(logging.INFO)
 
 # create file handler and set level to debug
-dao_fh = logging.FileHandler(os.path.join('logs', 'dao', 'dao.log'))
+dao_fh = logging.FileHandler(
+    os.path.join(
+        THIS_FOLDER,
+        'logs',
+        'dao',
+        'dao.log'
+    )
+)
 dao_fh.setLevel(logging.INFO)
 
 # create formatter
@@ -55,7 +65,14 @@ views_logger = logging.getLogger('views')
 views_logger.setLevel(logging.INFO)
 
 # create file handler and set level to debug
-views_fh = logging.FileHandler(os.path.join('logs', 'views', 'views.log'))
+views_fh = logging.FileHandler(
+    os.path.join(
+        THIS_FOLDER,
+        'logs',
+        'views',
+        'views.log'
+    )
+)
 views_fh.setLevel(logging.INFO)
 
 # create formatter
