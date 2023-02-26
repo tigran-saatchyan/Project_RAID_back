@@ -53,19 +53,14 @@ class PlacesView(Resource):
         """
         max_int = 9223372036854775807
         try:
-            filter_city = request.args.get('city')
+            filter_city = request.args.get('city', '', str)
 
-            price_from = 0 \
-                if request.args.get('from') == "" \
-                else request.args.get('from')
+            price_from = int(request.args.get('from', 0, int))
+            price_to = request.args.get('to', 0, int)
 
-            price_to = 0 \
-                if request.args.get('to') == "" \
-                else request.args.get('to')
-
-            if not filter_city or (filter_city.isalpha() and len(
-                    filter_city
-            ) <= 255):
+            if not filter_city or (
+                    filter_city.isalpha() and len(filter_city) <= 255
+            ):
                 pass
             else:
                 raise TypeError
