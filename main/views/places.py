@@ -56,7 +56,7 @@ class PlacesView(Resource):
             filter_city = request.args.get('city', '', str)
 
             price_from = int(request.args.get('from', 0, int))
-            price_to = request.args.get('to', 0, int)
+            price_to = int(request.args.get('to', 0, int))
 
             if not filter_city or (
                     filter_city.isalpha() and len(filter_city) <= 255
