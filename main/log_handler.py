@@ -7,7 +7,7 @@ from pathlib import Path
 THIS_FOLDER = Path(__file__).parent.resolve()
 
 logging.basicConfig(
-    filename=os.path.join(THIS_FOLDER, 'logs', 'main.log'),
+    filename=os.path.join('..', THIS_FOLDER, 'logs', 'main.log'),
     filemode='a',
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     level=logging.DEBUG
@@ -19,7 +19,7 @@ services_logger.setLevel(logging.INFO)
 
 # create file handler and set level to debug
 services_fh = logging.FileHandler(
-    os.path.join(THIS_FOLDER, 'logs', 'services', 'services.log')
+    os.path.join('..', THIS_FOLDER, 'logs', 'services', 'services.log')
 )
 services_fh.setLevel(logging.INFO)
 
@@ -41,6 +41,7 @@ dao_logger.setLevel(logging.INFO)
 # create file handler and set level to debug
 dao_fh = logging.FileHandler(
     os.path.join(
+        '..',
         THIS_FOLDER,
         'logs',
         'dao',
@@ -67,6 +68,7 @@ views_logger.setLevel(logging.INFO)
 # create file handler and set level to debug
 views_fh = logging.FileHandler(
     os.path.join(
+        '..',
         THIS_FOLDER,
         'logs',
         'views',
