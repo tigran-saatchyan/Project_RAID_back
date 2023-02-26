@@ -6,7 +6,6 @@ from marshmallow import Schema, fields
 from main.setup_db import db
 
 
-@dataclasses.dataclass
 class Apartments(db.Model):
     """
     Apartments model
