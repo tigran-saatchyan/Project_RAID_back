@@ -65,7 +65,10 @@ class PlacesView(Resource):
             else:
                 raise TypeError
 
-            if not 0 <= int(price_from) <= int(price_to) <= max_int:
+            if not 0 <= int(price_from) <= max_int:
+                raise ValueError
+
+            if not 0 <= int(price_to) <= max_int:
                 raise ValueError
 
             price_from = int(price_from) if price_from else 0
