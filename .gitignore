@@ -3,9 +3,6 @@ venv/
 __pycache__/
 *.log
 /logs/dao/dao.log
-
 /logs/services/services.log
-
 /logs/views/views.log
-
 /logs/main.log
