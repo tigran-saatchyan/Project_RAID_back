@@ -1,4 +1,1 @@
-2023-02-26 18:13:49,160 [INFO] services: Retrieving all apartments for city 'None' with price range 1 - 9223372036854775807
-2023-02-26 18:13:49,173 [INFO] services: Retrieved 20 apartments for city 'None' with price range 1 - 9223372036854775807
-2023-02-26 18:13:57,778 [INFO] services: Retrieving all apartments for city 'None' with price range 1 - 9223372036854775807
-2023-02-26 18:13:57,780 [INFO] services: Retrieved 20 apartments for city 'None' with price range 1 - 9223372036854775807
+SERVICES.LOG
