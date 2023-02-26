@@ -243,7 +243,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?from",
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=111",
 					"protocol": "https",
 					"host": [
 						"pythonistic",
@@ -256,7 +256,7 @@
 					"query": [
 						{
 							"key": "from",
-							"value": null
+							"value": "111"
 						}
 					]
 				}
@@ -2152,7 +2152,7 @@
 	],
 	"variable": [
 		{
-			"id": "840db621-f2ab-498d-96e0-966b6b284f99",
+			"id": "10c0559b-5c17-4660-b8f2-0b1ee223e213",
 			"value": "",
 			"type": "string"
 		}
