@@ -1,1 +1,425 @@
 MAIN.LOG
+2023-02-26 18:21:40,024 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:21:40] "[32mGET /places?from=1&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:21:40,034 [INFO] services: Retrieving all apartments for city 'None' with price range 1 - 9223372036854775807
+2023-02-26 18:21:40,034 [INFO] dao: Getting all apartments in city=None, price from=1, price to=9223372036854775807
+2023-02-26 18:21:40,035 [INFO] dao: Filtering by price from=1
+2023-02-26 18:21:40,035 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:21:40,036 [INFO] services: Retrieved 20 apartments for city 'None' with price range 1 - 9223372036854775807
+2023-02-26 18:21:40,036 [INFO] views: All apartments fetched successfully
+2023-02-26 18:21:40,037 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:21:40] "GET /places/?from=1&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:23:20,449 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:23:20] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:23:20,451 [ERROR] views: Error: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+2023-02-26 18:23:20,451 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:23:20] "[31m[1mGET /places/ HTTP/1.1[0m" 400 -
+2023-02-26 18:25:05,884 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:25:05,967 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:25:06,395 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:25:06,395 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:26:13,779 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:26:13] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:26:13,782 [ERROR] views: Error: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+2023-02-26 18:26:13,782 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:26:13] "[31m[1mGET /places/ HTTP/1.1[0m" 400 -
+2023-02-26 18:26:52,019 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:26:52,085 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:26:52,461 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:26:52,462 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:26:53,476 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:26:53] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:26:53,480 [ERROR] views: Error: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+2023-02-26 18:26:53,480 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:26:53] "[31m[1mGET /places/ HTTP/1.1[0m" 400 -
+2023-02-26 18:29:43,459 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:29:43,544 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:29:43,922 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:29:43,922 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:31:38,560 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:31:38,626 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:31:38,989 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:31:38,990 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:32:57,446 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:32:57,545 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:32:57,923 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:32:57,923 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:33:33,144 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:33:33,269 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:33:33,657 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:33:33,657 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:33:45,734 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:33:45,811 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:33:46,166 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:33:46,166 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:33:47,380 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:33:47] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:33:47,384 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:33:47,384 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:33:47,392 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:33:47,392 [INFO] views: All apartments fetched successfully
+2023-02-26 18:33:47,393 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:33:47] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:34:02,550 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:02] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:34:02,554 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:34:02,554 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:34:02,555 [INFO] dao: Filtering by city=athens
+2023-02-26 18:34:02,557 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:34:02,557 [INFO] views: All apartments fetched successfully
+2023-02-26 18:34:02,557 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:02] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:34:05,741 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:05] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:34:05,743 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:34:05,743 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:34:05,744 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:34:05,744 [INFO] views: All apartments fetched successfully
+2023-02-26 18:34:05,745 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:05] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:34:11,090 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:11] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:34:11,093 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:34:11,093 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:11] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:34:19,879 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:19] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:34:19,899 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:34:19,899 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:34:19] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:35:25,744 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:35:25,805 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:35:26,203 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:35:26,203 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:35:33,584 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:33] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:35:33,589 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:35:33,589 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:33] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:35:35,035 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:35] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:35:35,038 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:35:35,038 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:35] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:35:43,898 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:43] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:35:43,900 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:35:43,901 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:43] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:35:46,701 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:46] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:35:46,707 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:35:46,707 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:35:46,719 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:35:46,719 [INFO] views: All apartments fetched successfully
+2023-02-26 18:35:46,721 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:35:46] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:36:03,749 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:03] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:36:03,752 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:36:03,752 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:36:03,752 [INFO] dao: Filtering by city=athens
+2023-02-26 18:36:03,754 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:36:03,754 [INFO] views: All apartments fetched successfully
+2023-02-26 18:36:03,755 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:03] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:36:06,674 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:06] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:36:06,677 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:36:06,678 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:06] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:36:14,044 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:14] "[32mGET /places?city=Athens&from=300&to=400 HTTP/1.1[0m" 308 -
+2023-02-26 18:36:14,046 [INFO] services: Retrieving all apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:36:14,046 [INFO] dao: Getting all apartments in city=Athens, price from=300, price to=400
+2023-02-26 18:36:14,046 [INFO] dao: Filtering by city=Athens
+2023-02-26 18:36:14,047 [INFO] dao: Filtering by price from=300
+2023-02-26 18:36:14,047 [INFO] dao: Filtering by price to=400
+2023-02-26 18:36:14,048 [INFO] services: Retrieved 2 apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:36:14,048 [INFO] views: All apartments fetched successfully
+2023-02-26 18:36:14,049 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:14] "GET /places/?city=Athens&from=300&to=400 HTTP/1.1" 200 -
+2023-02-26 18:36:18,947 [INFO] services: Retrieving apartment with ID 1
+2023-02-26 18:36:18,947 [INFO] dao: Getting apartment with id=1
+2023-02-26 18:36:18,949 [INFO] services: Retrieved apartment with ID 1: {'pk': 1, 'title': 'Suite on Agiou Konstantinou', 'description': 'The building is shaped like an L. The extension extends into stylish gardens reaching until the end of that side of the house.', 'picture_url': 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1680&q=80', 'price': 400, 'city_id': 1, 'host_id': 1, 'id': 1, 'city': 'Athens', 'country': 'Greece', 'host_name': 'Alethea', 'host_phone': '568-904-2568', 'host_location': '1543 Agiou Konstantinou '}
+2023-02-26 18:36:18,949 [INFO] dao: Retrieving features for apartment id 1
+2023-02-26 18:36:18,957 [INFO] services: Got 2 features for apartment 1
+2023-02-26 18:36:18,957 [INFO] views: Retrieved apartment details for PK 1
+2023-02-26 18:36:18,958 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:18] "GET /places/1 HTTP/1.1" 200 -
+2023-02-26 18:36:26,208 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:26] "[33mGET /places/:pk HTTP/1.1[0m" 404 -
+2023-02-26 18:36:40,636 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:40] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:36:40,639 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:36:40,639 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:36:40,640 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:36:40,640 [INFO] views: All apartments fetched successfully
+2023-02-26 18:36:40,641 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:36:40] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:37:10,799 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:37:10,886 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:37:11,254 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:37:11,254 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:37:12,863 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:12] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:37:12,866 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:12,866 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:37:12,875 [INFO] dao: Filtering by city=athens
+2023-02-26 18:37:12,883 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:12,883 [INFO] views: All apartments fetched successfully
+2023-02-26 18:37:12,884 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:12] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:37:21,275 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:21] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:37:21,278 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:37:21,279 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:37:21,280 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:37:21,281 [INFO] views: All apartments fetched successfully
+2023-02-26 18:37:21,281 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:21] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:37:23,895 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:23] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:37:23,898 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:23,898 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:37:23,898 [INFO] dao: Filtering by city=athens
+2023-02-26 18:37:23,899 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:23,899 [INFO] views: All apartments fetched successfully
+2023-02-26 18:37:23,899 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:23] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:37:27,188 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:27] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:37:27,190 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:37:27,191 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:37:27] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:37:53,506 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:37:53,595 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:37:53,949 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:37:53,949 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:38:05,023 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:38:05,092 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:38:05,452 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:38:05,452 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:38:07,193 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:38:07] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:38:07,195 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:38:07,196 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:38:07] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:39:18,878 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:39:18,996 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:39:19,428 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:39:19,429 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:39:19,684 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:39:19] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:39:19,693 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:39:19,693 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:39:19] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:39:28,065 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:39:28] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:39:28,070 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:39:28,070 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:39:28] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:40:23,824 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:40:23,895 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:40:24,289 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:40:24,290 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:40:25,460 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:40:25] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:40:25,464 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:40:25,464 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:40:25] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:40:37,399 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:40:37,489 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:40:37,919 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:40:37,920 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:40:38,714 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:40:38] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:40:38,722 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:40:38,723 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:40:38] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:41:23,834 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:41:23] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:41:23,836 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:41:23,836 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:41:23] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:41:52,857 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:41:52] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:41:52,859 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:41:52,859 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:41:52,868 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:41:52,869 [INFO] views: All apartments fetched successfully
+2023-02-26 18:41:52,869 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:41:52] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:42:06,089 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-02-26 18:42:06,089 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2023-02-26 18:42:06,089 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:42:06,440 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:42:06,440 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:42:08,977 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:42:08] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:42:08,981 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:08,981 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:42:08,989 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:08,989 [INFO] views: All apartments fetched successfully
+2023-02-26 18:42:08,990 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:42:08] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:42:53,734 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:42:53,822 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:42:54,253 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:42:54,254 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:42:54,801 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:42:54] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:42:54,804 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:54,804 [INFO] dao: Getting all apartments in city=None, price from=0, price to=0
+2023-02-26 18:42:54,822 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:54,822 [INFO] views: All apartments fetched successfully
+2023-02-26 18:42:54,824 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:42:54] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:43:03,328 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:43:03,407 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:43:03,807 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:43:03,807 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:43:05,268 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:05] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:43:05,270 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:43:05,270 [INFO] dao: Getting all apartments in city=, price from=0, price to=0
+2023-02-26 18:43:05,281 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:43:05,281 [INFO] views: All apartments fetched successfully
+2023-02-26 18:43:05,282 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:05] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:43:21,261 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:21] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:43:21,264 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:21,264 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:43:21,264 [INFO] dao: Filtering by city=athens
+2023-02-26 18:43:21,266 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:21,266 [INFO] views: All apartments fetched successfully
+2023-02-26 18:43:21,267 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:21] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:43:25,622 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-02-26 18:43:25,622 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2023-02-26 18:43:25,622 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:43:25,978 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:43:25,978 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:43:27,463 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:27] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:43:27,465 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:27,465 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:43:27,470 [INFO] dao: Filtering by city=athens
+2023-02-26 18:43:27,475 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:27,476 [INFO] views: All apartments fetched successfully
+2023-02-26 18:43:27,476 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:27] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:43:35,771 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:35] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:43:35,775 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:43:35,775 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:43:35] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:44:05,231 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:44:05,329 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:44:05,728 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:44:05,729 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:44:07,114 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:07] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:44:07,117 [ERROR] views: Error: could not convert string to float: ''
+2023-02-26 18:44:07,117 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:07] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:44:23,841 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:44:23,923 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:44:24,346 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:44:24,346 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:44:24,412 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:24] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:44:24,415 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:44:24,415 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:24] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:44:29,101 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-02-26 18:44:29,101 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2023-02-26 18:44:29,101 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:44:29,449 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:44:29,450 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:44:33,441 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:33] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:44:33,444 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:44:33,444 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:33] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:44:46,555 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:44:46,638 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:44:47,022 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:44:47,023 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:44:47,598 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:47] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:44:47,600 [ERROR] views: Error: invalid literal for int() with base 10: ''
+2023-02-26 18:44:47,600 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:44:47] "[31m[1mGET /places/?from=&to=9223372036854775807 HTTP/1.1[0m" 400 -
+2023-02-26 18:45:07,155 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:45:07,252 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:45:07,679 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:45:07,680 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:45:08,019 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:08] "[32mGET /places?from=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:45:08,026 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:08,026 [INFO] dao: Getting all apartments in city=, price from=0, price to=9223372036854775807
+2023-02-26 18:45:08,033 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:45:08,037 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:08,037 [INFO] views: All apartments fetched successfully
+2023-02-26 18:45:08,038 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:08] "GET /places/?from=&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:45:28,811 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:45:28,911 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:45:29,360 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:45:29,361 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:45:31,921 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:31] "[32mGET /places?from=1&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:45:31,925 [INFO] services: Retrieving all apartments for city '' with price range 1 - 9223372036854775807
+2023-02-26 18:45:31,925 [INFO] dao: Getting all apartments in city=, price from=1, price to=9223372036854775807
+2023-02-26 18:45:31,931 [INFO] dao: Filtering by price from=1
+2023-02-26 18:45:31,931 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:45:31,935 [INFO] services: Retrieved 20 apartments for city '' with price range 1 - 9223372036854775807
+2023-02-26 18:45:31,935 [INFO] views: All apartments fetched successfully
+2023-02-26 18:45:31,936 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:31] "GET /places/?from=1&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:45:44,361 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:44] "[32mGET /places?from=500=&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:45:44,363 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:44,363 [INFO] dao: Getting all apartments in city=, price from=0, price to=9223372036854775807
+2023-02-26 18:45:44,364 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:45:44,365 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:44,365 [INFO] views: All apartments fetched successfully
+2023-02-26 18:45:44,366 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:44] "GET /places/?from=500=&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:45:52,544 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:52] "[32mGET /places?from=500&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:45:52,551 [INFO] services: Retrieving all apartments for city '' with price range 500 - 9223372036854775807
+2023-02-26 18:45:52,551 [INFO] dao: Getting all apartments in city=, price from=500, price to=9223372036854775807
+2023-02-26 18:45:52,552 [INFO] dao: Filtering by price from=500
+2023-02-26 18:45:52,552 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:45:52,553 [INFO] services: Retrieved 8 apartments for city '' with price range 500 - 9223372036854775807
+2023-02-26 18:45:52,553 [INFO] views: All apartments fetched successfully
+2023-02-26 18:45:52,554 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:52] "GET /places/?from=500&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:45:59,491 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:59] "[32mGET /places?from=500/*&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:45:59,496 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:59,496 [INFO] dao: Getting all apartments in city=, price from=0, price to=9223372036854775807
+2023-02-26 18:45:59,497 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:45:59,499 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:59,499 [INFO] views: All apartments fetched successfully
+2023-02-26 18:45:59,501 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:45:59] "GET /places/?from=500/*&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:46:37,768 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:46:37,844 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:46:38,200 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:46:38,201 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:46:38,532 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:46:38] "[32mGET /places?from=500/*&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:46:38,535 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:46:38,535 [INFO] dao: Getting all apartments in city=, price from=0, price to=9223372036854775807
+2023-02-26 18:46:38,541 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:46:38,546 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:46:38,546 [INFO] views: All apartments fetched successfully
+2023-02-26 18:46:38,547 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:46:38] "GET /places/?from=500/*&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:47:04,351 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:47:04,410 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:47:04,804 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:47:04,804 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:47:05,485 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:47:05] "[32mGET /places?from=500/*&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:47:05,489 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:05,489 [INFO] dao: Getting all apartments in city=, price from=0, price to=9223372036854775807
+2023-02-26 18:47:05,494 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:47:05,499 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:05,499 [INFO] views: All apartments fetched successfully
+2023-02-26 18:47:05,500 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:47:05] "GET /places/?from=500/*&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:47:42,049 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:47:42,152 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:47:42,579 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:47:42,579 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:47:43,215 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:47:43] "[32mGET /places?from=500/*&to=9223372036854775807 HTTP/1.1[0m" 308 -
+2023-02-26 18:47:43,218 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:43,218 [INFO] dao: Getting all apartments in city=, price from=0, price to=9223372036854775807
+2023-02-26 18:47:43,223 [INFO] dao: Filtering by price to=9223372036854775807
+2023-02-26 18:47:43,228 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:43,228 [INFO] views: All apartments fetched successfully
+2023-02-26 18:47:43,229 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:47:43] "GET /places/?from=500/*&to=9223372036854775807 HTTP/1.1" 200 -
+2023-02-26 18:48:31,718 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:31] "[32mGET /places?from=500/*&to=9223372036854775807w HTTP/1.1[0m" 308 -
+2023-02-26 18:48:31,721 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:48:31,721 [INFO] dao: Getting all apartments in city=, price from=0, price to=0
+2023-02-26 18:48:31,723 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:48:31,723 [INFO] views: All apartments fetched successfully
+2023-02-26 18:48:31,723 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:31] "GET /places/?from=500/*&to=9223372036854775807w HTTP/1.1" 200 -
+2023-02-26 18:48:43,488 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:43] "[32mGET /places?from=500/*&to=600 HTTP/1.1[0m" 308 -
+2023-02-26 18:48:43,490 [INFO] services: Retrieving all apartments for city '' with price range 0 - 600
+2023-02-26 18:48:43,491 [INFO] dao: Getting all apartments in city=, price from=0, price to=600
+2023-02-26 18:48:43,491 [INFO] dao: Filtering by price to=600
+2023-02-26 18:48:43,492 [INFO] services: Retrieved 18 apartments for city '' with price range 0 - 600
+2023-02-26 18:48:43,492 [INFO] views: All apartments fetched successfully
+2023-02-26 18:48:43,493 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:43] "GET /places/?from=500/*&to=600 HTTP/1.1" 200 -
+2023-02-26 18:48:55,148 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:55] "[32mGET /places?from=500/*&to=400 HTTP/1.1[0m" 308 -
+2023-02-26 18:48:55,151 [INFO] services: Retrieving all apartments for city '' with price range 0 - 400
+2023-02-26 18:48:55,152 [INFO] dao: Getting all apartments in city=, price from=0, price to=400
+2023-02-26 18:48:55,152 [INFO] dao: Filtering by price to=400
+2023-02-26 18:48:55,152 [INFO] services: Retrieved 8 apartments for city '' with price range 0 - 400
+2023-02-26 18:48:55,153 [INFO] views: All apartments fetched successfully
+2023-02-26 18:48:55,153 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:55] "GET /places/?from=500/*&to=400 HTTP/1.1" 200 -
+2023-02-26 18:48:59,922 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:59] "[32mGET /places?from=500/*&to=400d HTTP/1.1[0m" 308 -
+2023-02-26 18:48:59,926 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:48:59,926 [INFO] dao: Getting all apartments in city=, price from=0, price to=0
+2023-02-26 18:48:59,927 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:48:59,927 [INFO] views: All apartments fetched successfully
+2023-02-26 18:48:59,928 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:48:59] "GET /places/?from=500/*&to=400d HTTP/1.1" 200 -
+2023-02-26 18:49:34,217 [INFO] werkzeug:  * Detected change in '/home/tigranix/Desktop/PyPyPy/raider_hm/main/views/places.py', reloading
+2023-02-26 18:49:34,285 [INFO] werkzeug:  * Restarting with stat
+2023-02-26 18:49:34,641 [WARNING] werkzeug:  * Debugger is active!
+2023-02-26 18:49:34,641 [INFO] werkzeug:  * Debugger PIN: 756-750-418
+2023-02-26 18:53:06,203 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "[32mGET /places HTTP/1.1[0m" 308 -
+2023-02-26 18:53:06,206 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:53:06,206 [INFO] dao: Getting all apartments in city=, price from=0, price to=0
+2023-02-26 18:53:06,215 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:53:06,215 [INFO] views: All apartments fetched successfully
+2023-02-26 18:53:06,216 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "GET /places/ HTTP/1.1" 200 -
+2023-02-26 18:53:06,244 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "[32mGET /places?city=athens HTTP/1.1[0m" 308 -
+2023-02-26 18:53:06,248 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:53:06,248 [INFO] dao: Getting all apartments in city=athens, price from=0, price to=0
+2023-02-26 18:53:06,249 [INFO] dao: Filtering by city=athens
+2023-02-26 18:53:06,252 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:53:06,252 [INFO] views: All apartments fetched successfully
+2023-02-26 18:53:06,253 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "GET /places/?city=athens HTTP/1.1" 200 -
+2023-02-26 18:53:06,277 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "[32mGET /places?from=5&to=10 HTTP/1.1[0m" 308 -
+2023-02-26 18:53:06,280 [INFO] services: Retrieving all apartments for city '' with price range 5 - 10
+2023-02-26 18:53:06,280 [INFO] dao: Getting all apartments in city=, price from=5, price to=10
+2023-02-26 18:53:06,280 [INFO] dao: Filtering by price from=5
+2023-02-26 18:53:06,280 [INFO] dao: Filtering by price to=10
+2023-02-26 18:53:06,282 [INFO] services: Retrieved 0 apartments for city '' with price range 5 - 10
+2023-02-26 18:53:06,282 [INFO] views: All apartments fetched successfully
+2023-02-26 18:53:06,283 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "GET /places/?from=5&to=10 HTTP/1.1" 200 -
+2023-02-26 18:53:06,301 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "[32mGET /places?city=Athens&from=300&to=400 HTTP/1.1[0m" 308 -
+2023-02-26 18:53:06,304 [INFO] services: Retrieving all apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:53:06,304 [INFO] dao: Getting all apartments in city=Athens, price from=300, price to=400
+2023-02-26 18:53:06,305 [INFO] dao: Filtering by city=Athens
+2023-02-26 18:53:06,305 [INFO] dao: Filtering by price from=300
+2023-02-26 18:53:06,305 [INFO] dao: Filtering by price to=400
+2023-02-26 18:53:06,307 [INFO] services: Retrieved 2 apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:53:06,307 [INFO] views: All apartments fetched successfully
+2023-02-26 18:53:06,307 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "GET /places/?city=Athens&from=300&to=400 HTTP/1.1" 200 -
+2023-02-26 18:53:06,328 [INFO] services: Retrieving apartment with ID 1
+2023-02-26 18:53:06,328 [INFO] dao: Getting apartment with id=1
+2023-02-26 18:53:06,332 [INFO] services: Retrieved apartment with ID 1: {'pk': 1, 'title': 'Suite on Agiou Konstantinou', 'description': 'The building is shaped like an L. The extension extends into stylish gardens reaching until the end of that side of the house.', 'picture_url': 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1680&q=80', 'price': 400, 'city_id': 1, 'host_id': 1, 'id': 1, 'city': 'Athens', 'country': 'Greece', 'host_name': 'Alethea', 'host_phone': '568-904-2568', 'host_location': '1543 Agiou Konstantinou '}
+2023-02-26 18:53:06,332 [INFO] dao: Retrieving features for apartment id 1
+2023-02-26 18:53:06,334 [INFO] services: Got 2 features for apartment 1
+2023-02-26 18:53:06,334 [INFO] views: Retrieved apartment details for PK 1
+2023-02-26 18:53:06,334 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "GET /places/1 HTTP/1.1" 200 -
+2023-02-26 18:53:06,359 [INFO] werkzeug: 127.0.0.1 - - [26/Feb/2023 18:53:06] "[33mGET /places/:pk HTTP/1.1[0m" 404 -

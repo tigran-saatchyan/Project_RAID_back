@@ -1,1 +1,73 @@
 SERVICES.LOG
+2023-02-26 18:21:40,034 [INFO] services: Retrieving all apartments for city 'None' with price range 1 - 9223372036854775807
+2023-02-26 18:21:40,036 [INFO] services: Retrieved 20 apartments for city 'None' with price range 1 - 9223372036854775807
+2023-02-26 18:33:47,384 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:33:47,392 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:34:02,554 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:34:02,557 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:34:05,743 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:34:05,744 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:35:46,707 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:35:46,719 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:36:03,752 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:36:03,754 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:36:14,046 [INFO] services: Retrieving all apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:36:14,048 [INFO] services: Retrieved 2 apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:36:18,947 [INFO] services: Retrieving apartment with ID 1
+2023-02-26 18:36:18,949 [INFO] services: Retrieved apartment with ID 1: {'pk': 1, 'title': 'Suite on Agiou Konstantinou', 'description': 'The building is shaped like an L. The extension extends into stylish gardens reaching until the end of that side of the house.', 'picture_url': 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1680&q=80', 'price': 400, 'city_id': 1, 'host_id': 1, 'id': 1, 'city': 'Athens', 'country': 'Greece', 'host_name': 'Alethea', 'host_phone': '568-904-2568', 'host_location': '1543 Agiou Konstantinou '}
+2023-02-26 18:36:18,957 [INFO] services: Got 2 features for apartment 1
+2023-02-26 18:36:40,639 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:36:40,640 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:37:12,866 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:12,883 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:21,278 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:37:21,280 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:37:23,898 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:37:23,899 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:41:52,859 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:41:52,868 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:08,981 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:08,989 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:54,804 [INFO] services: Retrieving all apartments for city 'None' with price range 0 - 0
+2023-02-26 18:42:54,822 [INFO] services: Retrieved 20 apartments for city 'None' with price range 0 - 0
+2023-02-26 18:43:05,270 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:43:05,281 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:43:21,264 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:21,266 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:27,465 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:43:27,475 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:45:08,026 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:08,037 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:31,925 [INFO] services: Retrieving all apartments for city '' with price range 1 - 9223372036854775807
+2023-02-26 18:45:31,935 [INFO] services: Retrieved 20 apartments for city '' with price range 1 - 9223372036854775807
+2023-02-26 18:45:44,363 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:44,365 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:52,551 [INFO] services: Retrieving all apartments for city '' with price range 500 - 9223372036854775807
+2023-02-26 18:45:52,553 [INFO] services: Retrieved 8 apartments for city '' with price range 500 - 9223372036854775807
+2023-02-26 18:45:59,496 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:45:59,499 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:46:38,535 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:46:38,546 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:05,489 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:05,499 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:43,218 [INFO] services: Retrieving all apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:47:43,228 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 9223372036854775807
+2023-02-26 18:48:31,721 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:48:31,723 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:48:43,490 [INFO] services: Retrieving all apartments for city '' with price range 0 - 600
+2023-02-26 18:48:43,492 [INFO] services: Retrieved 18 apartments for city '' with price range 0 - 600
+2023-02-26 18:48:55,151 [INFO] services: Retrieving all apartments for city '' with price range 0 - 400
+2023-02-26 18:48:55,152 [INFO] services: Retrieved 8 apartments for city '' with price range 0 - 400
+2023-02-26 18:48:59,926 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:48:59,927 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:53:06,206 [INFO] services: Retrieving all apartments for city '' with price range 0 - 0
+2023-02-26 18:53:06,215 [INFO] services: Retrieved 20 apartments for city '' with price range 0 - 0
+2023-02-26 18:53:06,248 [INFO] services: Retrieving all apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:53:06,252 [INFO] services: Retrieved 3 apartments for city 'athens' with price range 0 - 0
+2023-02-26 18:53:06,280 [INFO] services: Retrieving all apartments for city '' with price range 5 - 10
+2023-02-26 18:53:06,282 [INFO] services: Retrieved 0 apartments for city '' with price range 5 - 10
+2023-02-26 18:53:06,304 [INFO] services: Retrieving all apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:53:06,307 [INFO] services: Retrieved 2 apartments for city 'Athens' with price range 300 - 400
+2023-02-26 18:53:06,328 [INFO] services: Retrieving apartment with ID 1
+2023-02-26 18:53:06,332 [INFO] services: Retrieved apartment with ID 1: {'pk': 1, 'title': 'Suite on Agiou Konstantinou', 'description': 'The building is shaped like an L. The extension extends into stylish gardens reaching until the end of that side of the house.', 'picture_url': 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1680&q=80', 'price': 400, 'city_id': 1, 'host_id': 1, 'id': 1, 'city': 'Athens', 'country': 'Greece', 'host_name': 'Alethea', 'host_phone': '568-904-2568', 'host_location': '1543 Agiou Konstantinou '}
+2023-02-26 18:53:06,334 [INFO] services: Got 2 features for apartment 1
