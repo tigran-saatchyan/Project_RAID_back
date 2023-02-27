@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "891523a6-41fc-4c7e-9bb0-b616ecd974fc",
+		"_postman_id": "98df8fa7-31ad-45ce-81f7-4d631a8afb61",
 		"name": "RAID",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -11,33 +11,22 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e3de5b58-2454-4484-85ae-1b06cd5be914",
+						"id": "fdbc99ee-225a-4313-b9e3-66ddf8c740b6",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
-							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "3585fc73-ce2d-471e-85a3-b73ba2c376a9",
+			"_postman_id": "b039fed4-cd55-4d0b-bf3e-7fceba29da32",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -49,86 +38,27 @@
 			"response": []
 		},
 		{
-			"name": "Status code 404 Not Found Запрос к несуществуещей карточке отеля",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "880e9bf4-e077-4f36-ad97-1f4f59d8c400",
-						"exec": [
-							"// Testing response times",
-							"// Test for the response time to be within a specified range:",
-							"pm.test(\"Response time is less than 200ms\", () => {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
-							"",
-							"pm.test(\"Status code is 404\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "dc890db3-58e4-4b7d-a4bc-269de83b25bf",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
-					"protocol": "https",
-					"host": [
-						"pythonistic",
-						"pythonanywhere",
-						"com"
-					],
-					"path": [
-						"places",
-						":pk"
-					],
-					"variable": [
-						{
-							"id": "a6e0fd1a-ce81-46b2-84f8-bbab2149beb8",
-							"key": "pk",
-							"value": "21"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Списка объявлений с фильтром по городу",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "f3bc7581-ac65-437f-8669-1b74df8e967c",
+						"id": "4c01894b-ac35-48f0-a685-9ebc005d01ae",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "e40b060f-bf8a-4af1-9b37-dcc947928882",
+			"_postman_id": "804888a4-7e74-445c-938d-bf5b36ece6e8",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -136,7 +66,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?city=athens",
+					"raw": "https://pythonistic.pythonanywhere.com/places?city",
 					"protocol": "https",
 					"host": [
 						"pythonistic",
@@ -149,7 +79,7 @@
 					"query": [
 						{
 							"key": "city",
-							"value": "athens"
+							"value": null
 						}
 					]
 				}
@@ -157,32 +87,958 @@
 			"response": []
 		},
 		{
-			"name": "Списка объявлений с фильтром по городу (не правильный формат)",
+			"name": "Фильтр по городу с валидными данными",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "2f891296-efc7-4cd8-a3c8-a2bc01ff8016",
+						"id": "9880095e-a430-4915-b4bc-b989afb6bc40",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9af9b017-a293-4935-a5a8-d3bb5e7b9d57",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?city=berlin",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "berlin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по городу с не валидными данными",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99696318-4930-4c8f-a2af-e2c6deee6ab7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
 							"\r",
-							"pm.test(\"Status code is 400 for Bad Request\", function () {\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "5322b074-3f82-4a87-9afd-72085a52ae09",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?city=berest",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "berest"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Списка объявлений с фильтром по цене От",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8d272ff-5be3-4f04-869e-ca977ecdf8a6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "5255be0a-5246-4830-94ed-94ebcadd9369",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От с  валидными данными",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "415d0fd4-d7cc-4970-a6b0-40a849ce4b2b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "b18bc8ee-8ece-431f-8a8d-ceab6f05a218",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=100",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От пустое значение",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "119f18eb-5129-4284-84a7-a0973a396580",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "241bd3b6-2127-4058-8e02-5bb43a20b2f8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От ноль",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db997498-50a4-479c-8a9e-8b0d6e234e24",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "0469a1a0-ff7f-4d16-923a-e5210f808428",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=0",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От  1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dec1cfdb-2fcb-4b59-9139-ab9fcfb8e0a8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "7c35cef3-3cdd-48cb-b777-710cbc444667",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=1",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От  50",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f5f288a-2881-462c-8175-1b69a2947fbc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "1e543b84-ad90-4689-bf8f-b4585dce1760",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=50",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От  100",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d58bf94-0001-42dc-a03c-ce6b6a7f01aa",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "34421d68-2121-4c94-aa86-30aeb466b614",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=100",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7c44eb97-5104-4d32-8496-27cb003f5276",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "86a02382-e66f-4eaa-819a-75da8711ff9e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=500",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От 1000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f1f3800-64c9-48a7-8d97-2bfd7bc4db7c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "625a7297-3828-495a-8ee4-9835f347feab",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=1000",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От 1500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86e09686-c8db-4616-a284-78b284a3e149",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "89799136-8e7b-40cc-8b4e-0b9832724b9a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=1500",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "1500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От 2000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ca433b0-2854-4200-b100-f82175c4bf4f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "310c8e81-523f-4fbb-b44a-4d9f8fa97cb1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=2000",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От 2001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0ecfeb7-90e8-4164-aec0-d95c2bdbb8cb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "141631cc-5366-4a95-985a-f0478aafec23",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=2001",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От символы на Кириллице",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41aefbeb-15a2-47cb-841b-ba7f88b15267",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2cd3dbe5-2f9e-45a8-923b-940da428d21f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=три",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "три"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От символы на Латинице",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5445a9d-1d13-428a-b6e3-e89532d706e8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "7f72a836-e628-40d2-a9a7-b09ea3e6a166",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=two",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "two"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От спецсимволы",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ed2e9cb-9405-4609-89f6-99fc0a3d97cd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "8877d4a8-32d3-4138-9ea7-87582ba71116",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=@",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "@"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От дробное число с разделителем точка",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "524fe7fd-0ccc-4c5e-a133-116bb81b5ddb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a877fef1-186a-4017-9430-34b214521596",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=1.5",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "1.5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От дробное число с разделителем запятая",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53276cff-cb20-47b0-887c-bae80405ce72",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2ccb024f-8659-43ef-8993-8b99782ea3a2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=1,5",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "1,5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От отрицательное число",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67ad7e93-7085-4ef2-946f-1ca34a6a018e",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
 							"    pm.response.to.have.status(400);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "7cb5b1c5-d4db-4f24-88e3-3fa314acbe11",
+			"_postman_id": "ac664d69-08dc-4f7b-a50f-0437de9ac719",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -190,60 +1046,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?city=!2123",
-					"protocol": "https",
-					"host": [
-						"pythonistic",
-						"pythonanywhere",
-						"com"
-					],
-					"path": [
-						"places"
-					],
-					"query": [
-						{
-							"key": "city",
-							"value": "!2123"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Списка объявлений с фильтром по цене \"от\" (from)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "bedd1ef0-1cbb-4eaa-8932-044fb2ade419",
-						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "e442ffb5-4f0e-4682-bec6-b0317d7e2f1a",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?from=111",
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=-15",
 					"protocol": "https",
 					"host": [
 						"pythonistic",
@@ -256,7 +1059,7 @@
 					"query": [
 						{
 							"key": "from",
-							"value": "111"
+							"value": "-15"
 						}
 					]
 				}
@@ -264,32 +1067,27 @@
 			"response": []
 		},
 		{
-			"name": "Списка объявлений с фильтром по цене \"от\" (from) (ввод не числовых данных)",
+			"name": "Фильтром по цене До с валидные данные",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "4d584fe7-a9d3-4587-8e84-185c6c95bb51",
+						"id": "22264bfc-6921-4f85-9372-7b50040894dd",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"\r",
-							"pm.test(\"Status code is 400 for Bad Request\", function () {\r",
+							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "42f8f515-b7fb-4a34-9c99-12b24f8bfb29",
+			"_postman_id": "1944ee1f-b9e2-407f-a8ec-b4840fc83b96",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -297,7 +1095,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?from=йцук",
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=600",
 					"protocol": "https",
 					"host": [
 						"pythonistic",
@@ -309,8 +1107,8 @@
 					],
 					"query": [
 						{
-							"key": "from",
-							"value": "йцук"
+							"key": "to",
+							"value": "600"
 						}
 					]
 				}
@@ -318,31 +1116,76 @@
 			"response": []
 		},
 		{
-			"name": "Списка объявлений с фильтром по цене \"до\" (to)",
+			"name": "Фильтром по цене До ноль",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "be5be1ef-7b29-45b6-8a3a-bcfb02f17de9",
+						"id": "b1443c98-95dc-4870-a060-e1ec8e9eb1e1",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "ac5a87ef-e962-4ace-aa9b-5e43f704a7d2",
+			"_postman_id": "6069d40c-1550-48fc-886f-c62cc6f12437",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=0",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До пустое значение",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc5d6335-983a-4cc9-a6ba-a5a8285d5537",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "5d365f09-d891-4acd-b38b-d04cb4dcac7c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -371,31 +1214,27 @@
 			"response": []
 		},
 		{
-			"name": "Списка объявлений с фильтром по цене \"до\" (to) (ввод не числовых данных)",
+			"name": "Фильтр по цене До  1",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "be5be1ef-7b29-45b6-8a3a-bcfb02f17de9",
+						"id": "b7b35e2e-701b-4dfa-b20d-f5e213e91449",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "1e9e46ae-e2e5-4e4f-97a9-884bcce05070",
+			"_postman_id": "69e3aebe-bcf5-4b9a-af73-b299fd780457",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -403,7 +1242,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?to",
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=1",
 					"protocol": "https",
 					"host": [
 						"pythonistic",
@@ -416,7 +1255,7 @@
 					"query": [
 						{
 							"key": "to",
-							"value": null
+							"value": "1"
 						}
 					]
 				}
@@ -424,32 +1263,27 @@
 			"response": []
 		},
 		{
-			"name": "Списка объявлений с фильтром по цене и городу (коректные данные)",
+			"name": "Фильтр по цене До 50",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "be5be1ef-7b29-45b6-8a3a-bcfb02f17de9",
+						"id": "c5a0b245-28b5-4487-9703-994affd95216",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"    pm.response.to.have.header(\"access-control-allow-origin\");\r",
-							"});\r",
-							"\r",
-							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 200\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "4c0d370d-9de5-41d5-a4c2-04fbf8423796",
+			"_postman_id": "f8524142-897f-45be-ac44-e4ef93839024",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -457,7 +1291,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://pythonistic.pythonanywhere.com/places?from=200&to=390&city=athens",
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=50",
 					"protocol": "https",
 					"host": [
 						"pythonistic",
@@ -469,18 +1303,596 @@
 					],
 					"query": [
 						{
-							"key": "from",
-							"value": "200"
-						},
+							"key": "to",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До  100",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0abb2a66-9786-4fc2-8337-b1b8eb2583f9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "07f9c4e3-fa53-460e-b419-5ea99af059da",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=100",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
 						{
 							"key": "to",
-							"value": "390",
-							"type": "text"
-						},
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc8af6f8-5fdc-4fdd-ae0b-d1df40f76b70",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2e3ab8ac-ef99-46fa-aa26-b3443b150fb6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=500",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
 						{
-							"key": "city",
-							"value": "athens",
-							"type": "text"
+							"key": "to",
+							"value": "500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До  1000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9bd24262-34a2-4bee-acfe-cc08d14d4f84",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "df2e04c5-352b-4764-ab1e-ea6d3aef5bf6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=1000",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До 1500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56230cb6-27d5-4d2f-855e-e60a846b0e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "49c38f08-847d-4675-8a20-936337660e8b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=1500",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "1500"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До  2000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba4e90ad-b879-48c0-93ad-ff6ccb3701e9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "36e16f3b-9bbe-4277-8b59-39312f8637ba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=2000",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До 2001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "13ecaee1-39ac-4c57-a953-1c7d5b516ede",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9d09f84c-5054-44db-9b13-7a82f179af63",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=2001",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До символы на Кириллице",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "18559040-acf3-4d73-abf4-d09f399d3e59",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a700b19f-1358-4b23-8c67-53bbc41d6f2e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=три",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "три"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До символы на Латинице",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aed285e8-71e0-4c88-85be-7ec941cd6932",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "027d8338-aeeb-42ad-bc91-550cffd5ae5c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=two",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "two"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До спецсимволы",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c9c3b94-c157-499e-b27c-8f3174e481bb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2beefe1a-6647-4cd8-ae4a-9899e2cfae75",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=@",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "@"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До дробное число с разделителем точка",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7fd74e34-5b56-4d9e-90f3-e2c14b083a66",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "e7e282c1-0087-48a1-9b01-62b148253fba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=1.5",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "1.5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До дробное число с разделителем запятая",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "35f32053-1e21-490e-9ed1-c743c6aee48f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "c27c9141-858e-468c-931d-92da26dc63f7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=1,5",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "1,5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене До отрицательное число",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c0529c91-c991-4a52-aa8a-c46477b6f386",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "38c51983-6025-4fc3-8cc0-00c59fd5f68e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?to=-15",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "-15"
 						}
 					]
 				}
@@ -493,53 +1905,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5a76ad20-1341-43d5-82be-66eaf61b5246",
+						"id": "5661772c-24a4-44ff-8b02-6c56ff5de617",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "b2829c78-d892-4cc4-ade9-694601d8690f",
+			"_postman_id": "80994ccf-da16-48d7-810f-58d41a40eab8",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -560,9 +1961,10 @@
 					],
 					"variable": [
 						{
-							"id": "051d329b-7a41-4030-9fb9-55eaf345faaf",
+							"id": "628f3871-520d-4248-ab80-24fe5018aad0",
 							"key": "pk",
-							"value": "1"
+							"value": "1",
+							"type": "string"
 						}
 					]
 				}
@@ -575,53 +1977,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4b88b348-1e69-4569-8d72-d9d2a505d166",
+						"id": "1fd1d3b0-3452-46bd-9653-99784f711b2f",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "15662970-8e02-4b07-8e59-39bdca60bb55",
+			"_postman_id": "d7bf2ce4-2b5c-4151-b70f-f5e4cbe88ccb",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -642,9 +2033,10 @@
 					],
 					"variable": [
 						{
-							"id": "eb3b65d8-1eaf-44fa-9ac9-ebfa7ff3dbe2",
+							"id": "3f250add-dbd5-4859-b58d-e47e5b0e0895",
 							"key": "pk",
-							"value": "2"
+							"value": "2",
+							"type": "string"
 						}
 					]
 				}
@@ -657,53 +2049,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ee6b4b6c-cb13-4549-9f99-f69afca8a478",
+						"id": "ed4abae5-cc48-4418-b58f-1d83078fd613",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "505883a9-a239-43f8-8d0e-64bb4a557e88",
+			"_postman_id": "781d8f91-9f43-4b91-883b-5bfda0bc786e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -724,9 +2105,10 @@
 					],
 					"variable": [
 						{
-							"id": "8555d9ba-e98d-4f39-bc02-534b3bb1c718",
+							"id": "6ce1a4d8-23a9-4cf4-b48a-f32ff41398a2",
 							"key": "pk",
-							"value": "3"
+							"value": "3",
+							"type": "string"
 						}
 					]
 				}
@@ -739,53 +2121,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b87b87cf-009b-470a-9635-635b685a1761",
+						"id": "b941f4c9-3f5b-4776-a17e-dac46374e612",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "0b336a0d-ccb8-4873-b6b8-019c72c06adf",
+			"_postman_id": "cc309749-09d3-48b9-b382-2cd2ae8f7845",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -806,9 +2177,10 @@
 					],
 					"variable": [
 						{
-							"id": "3030787e-8562-41d5-b7ba-e555d6f07b2d",
+							"id": "6f44864e-afd8-430e-b50b-503db298b106",
 							"key": "pk",
-							"value": "4"
+							"value": "4",
+							"type": "string"
 						}
 					]
 				}
@@ -821,53 +2193,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "65d22296-9c97-4ccd-b00c-662bae6546aa",
+						"id": "9ae7c964-8faf-4aa5-9287-46655bf93414",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "962bbb31-081f-41f7-9f6f-538b20e7b273",
+			"_postman_id": "e0eccc03-c5fa-4397-a565-4022531372fc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -888,9 +2249,10 @@
 					],
 					"variable": [
 						{
-							"id": "eff096a7-8268-4984-b81f-d6cc51401883",
+							"id": "42f77457-6a31-4fd6-a8ab-8fc646c1fa4f",
 							"key": "pk",
-							"value": "5"
+							"value": "5",
+							"type": "string"
 						}
 					]
 				}
@@ -903,53 +2265,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "01b3226f-55f7-4da4-80e3-a10a32c0771c",
+						"id": "1524a53f-8f97-40e5-b5fb-b46666445a29",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "5de66193-da8b-44f1-b86a-e45e815ba4bd",
+			"_postman_id": "da8ae456-672e-4ea1-9582-9a291f97a749",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -970,9 +2321,10 @@
 					],
 					"variable": [
 						{
-							"id": "a8097c5d-58d5-47aa-baa6-f239d4d10217",
+							"id": "adc87da7-2810-4f7c-86c3-44b4921c7776",
 							"key": "pk",
-							"value": "6"
+							"value": "6",
+							"type": "string"
 						}
 					]
 				}
@@ -985,53 +2337,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5e56191e-e182-4fab-9e4d-fe40ea73da22",
+						"id": "069a5463-c12c-4bd0-a4e7-858bc92f5c2a",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "45eedc0b-77b5-40b6-870f-b5f343873a68",
+			"_postman_id": "ec6e2a10-12e6-4d96-b3b2-c39859e89d2a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1052,9 +2393,10 @@
 					],
 					"variable": [
 						{
-							"id": "766c7813-fc5d-4809-8d6f-f6a44496a9f1",
+							"id": "9047edf8-f82c-48da-99aa-5e2842cebca2",
 							"key": "pk",
-							"value": "7"
+							"value": "7",
+							"type": "string"
 						}
 					]
 				}
@@ -1067,53 +2409,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "975df27f-4518-47c6-9162-1e6f6805e7a3",
+						"id": "d3b5e5ac-b32d-4510-ac63-beac658a9d6c",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "4d12698c-bde0-4969-81d7-1a1975d340f4",
+			"_postman_id": "3f5ff6a4-8398-4187-bcf8-c67d08691a39",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1134,9 +2465,10 @@
 					],
 					"variable": [
 						{
-							"id": "43f47f98-ad6b-49d8-8a2d-292e95433155",
+							"id": "813f7ad3-9384-429b-8a6e-8b99a64ff419",
 							"key": "pk",
-							"value": "8"
+							"value": "8",
+							"type": "string"
 						}
 					]
 				}
@@ -1149,53 +2481,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f60c7086-86d2-4e08-ac09-e79d3cb6c270",
+						"id": "82246690-3819-41f8-bd11-d5ad7ec91ead",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "317d12e5-eacb-4582-a6d5-7deab9814cb7",
+			"_postman_id": "2ffe4495-618a-449a-9dff-8be35d862dd0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1216,9 +2537,10 @@
 					],
 					"variable": [
 						{
-							"id": "32241f51-6c57-4ae5-aef5-bb5462eafd4c",
+							"id": "4ef6af26-7e2d-4876-93b9-d395f998ddd8",
 							"key": "pk",
-							"value": "9"
+							"value": "9",
+							"type": "string"
 						}
 					]
 				}
@@ -1231,53 +2553,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "007b35ea-80a5-4a2e-b70b-1ba68a0e0b85",
+						"id": "533c8dce-37ae-4cc3-b31a-3d7935b258fe",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "8dca869c-cbe8-45f2-a56c-e2e6550fe277",
+			"_postman_id": "9de3160f-9c3a-4b89-80d0-43fe65d32629",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1298,9 +2609,10 @@
 					],
 					"variable": [
 						{
-							"id": "7ff94cdc-5db2-4629-8fbc-0031815a68ce",
+							"id": "bc404254-1eab-444b-aec9-98b73a58a9ed",
 							"key": "pk",
-							"value": "10"
+							"value": "10",
+							"type": "string"
 						}
 					]
 				}
@@ -1313,53 +2625,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c312bed4-1f08-4340-9cda-e2759773b87c",
+						"id": "bac3e0d0-27dd-4e88-b2eb-311e94022cfb",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "2e5ec1d4-a93e-4af0-ae13-0295ffd15129",
+			"_postman_id": "e1d780d6-0cd5-4b5f-aca0-728635b765b7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1380,9 +2681,10 @@
 					],
 					"variable": [
 						{
-							"id": "b62cc911-8ab8-4297-b316-c1f526f90d69",
+							"id": "a173aae5-ec2c-48a8-954d-0d42e793286f",
 							"key": "pk",
-							"value": "11"
+							"value": "11",
+							"type": "string"
 						}
 					]
 				}
@@ -1395,53 +2697,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a6928fe3-e40e-4d72-bfa5-c99fcb6b4e33",
+						"id": "f7eded2d-7e50-4bdf-a7ab-cb6bf6c13f25",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "39caa073-d279-4125-a7b5-573466fff22c",
+			"_postman_id": "8e963cfd-67d5-4678-adcf-ff66adca568e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1462,9 +2753,10 @@
 					],
 					"variable": [
 						{
-							"id": "5cede0a3-bf93-40b8-8d5a-1e1388ce4965",
+							"id": "c734ad18-70dd-40aa-9555-16586eaf6155",
 							"key": "pk",
-							"value": "12"
+							"value": "12",
+							"type": "string"
 						}
 					]
 				}
@@ -1477,53 +2769,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9d2de08a-773c-456b-a8c6-12f495b5e8c8",
+						"id": "b9cb68e8-d9d6-4550-bfbe-e4f92a86f8a5",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "22dabcbc-73ca-47be-9db0-0190ee41b448",
+			"_postman_id": "45e172ab-731a-4d10-9748-7e70ad3d6490",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1544,9 +2825,10 @@
 					],
 					"variable": [
 						{
-							"id": "e2b0a116-2042-4add-ad57-837705946ff0",
+							"id": "99cf2868-8dd2-4550-b4c4-fe1f49ee6f5c",
 							"key": "pk",
-							"value": "13"
+							"value": "13",
+							"type": "string"
 						}
 					]
 				}
@@ -1559,53 +2841,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e1c49a7d-a872-4e74-810e-9e7eadf784f2",
+						"id": "80e5d2d9-6aac-4932-b379-a4c9db454c22",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "97a2abe1-ec1e-4b2f-af9f-fc805cd54de4",
+			"_postman_id": "e7fcf4be-2cc2-4f18-9cc2-1e950683c5fc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1626,9 +2897,10 @@
 					],
 					"variable": [
 						{
-							"id": "985e970d-7d25-449a-9228-812a242a856b",
+							"id": "49b456ac-18f4-4004-9bb9-6c8c8e68e18f",
 							"key": "pk",
-							"value": "14"
+							"value": "14",
+							"type": "string"
 						}
 					]
 				}
@@ -1641,53 +2913,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e3cee577-2f55-409e-95f8-bf2c4ef98805",
+						"id": "14cca44d-d131-44dd-9559-2437b2e64b2e",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "d21f1a2b-049d-43c5-b00c-7a0b82e0e02a",
+			"_postman_id": "15cc1b27-a8a6-4122-a3b5-50cec2b40cdd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1708,9 +2969,10 @@
 					],
 					"variable": [
 						{
-							"id": "eb1ab002-76b1-42c0-97d4-1e8c96764559",
+							"id": "e7fd5d4a-7aa8-4066-8452-d1422d56ee87",
 							"key": "pk",
-							"value": "15"
+							"value": "15",
+							"type": "string"
 						}
 					]
 				}
@@ -1723,53 +2985,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "174dcbf1-ff6b-4abd-b231-b77c17f39b4f",
+						"id": "1e3ae427-0615-480a-b1f1-5a7989fd70f5",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "69710801-a419-4de2-8dfb-ace2deabef81",
+			"_postman_id": "e1097a06-9464-4f03-a112-a445f1bc386f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1790,9 +3041,10 @@
 					],
 					"variable": [
 						{
-							"id": "92585b6b-6c97-47e1-9f4b-49bc06aa4984",
+							"id": "980342bd-1174-4e2f-866d-9f381c125350",
 							"key": "pk",
-							"value": "16"
+							"value": "16",
+							"type": "string"
 						}
 					]
 				}
@@ -1805,53 +3057,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "02d4e174-ad90-4908-94ae-f8d657e26c90",
+						"id": "bbcd89bc-52da-4d3a-9c65-6900dffb2248",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "c1e53a22-899e-4ebe-be6a-55f64f7bb28d",
+			"_postman_id": "1be7cf9b-aae5-4e3e-b6e4-cf234a77c506",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1872,9 +3113,10 @@
 					],
 					"variable": [
 						{
-							"id": "b3ec003e-3afe-4a98-914b-d4d9fc021035",
+							"id": "a698a800-a33e-43db-b3d5-bcaa282d4602",
 							"key": "pk",
-							"value": "17"
+							"value": "17",
+							"type": "string"
 						}
 					]
 				}
@@ -1887,53 +3129,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0ad2a716-a45d-405d-a930-864aa5fca866",
+						"id": "471f4ac4-687f-4c96-80dd-1a8e9b113f93",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "67b770c2-f157-421d-9d81-fbe4adb8119f",
+			"_postman_id": "42e24fc4-b67b-4dbd-93c9-6d8ae8d6bb9c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1954,9 +3185,10 @@
 					],
 					"variable": [
 						{
-							"id": "97daa1fc-8497-494a-b0b1-9d67848c588f",
+							"id": "731c71db-e8c2-4cc2-b140-42d72af6ad5a",
 							"key": "pk",
-							"value": "18"
+							"value": "18",
+							"type": "string"
 						}
 					]
 				}
@@ -1969,53 +3201,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "38d55d39-915e-4d05-8d12-0968062ac785",
+						"id": "d6f32ba6-9da4-4f37-a084-339f08e29e69",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "b9101473-9ab4-4631-b7be-40b053e6a6ec",
+			"_postman_id": "136aa951-e4ad-4a61-962c-4264e289048b",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -2036,9 +3257,10 @@
 					],
 					"variable": [
 						{
-							"id": "18b62c94-76c8-474a-a7dc-75bd8c86e461",
+							"id": "7a40fbc2-d2bc-4a11-8f48-eaac9d94a2fa",
 							"key": "pk",
-							"value": "19"
+							"value": "19",
+							"type": "string"
 						}
 					]
 				}
@@ -2051,53 +3273,42 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9fd07f69-e4d2-4803-89b3-ea42c47890b5",
+						"id": "b80578c9-3e6f-44ad-9bc8-76f212ab10b3",
 						"exec": [
-							"// Check that a response header is present:\r",
-							"pm.test(\"CORS header is present\", () => {\r",
-							"  pm.response.to.have.header(\"access-control-allow-origin\");\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"// Test for a response header having a particular value:\r",
-							"pm.test(\"Content-Type header is application/json\", () => {\r",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});\r",
-							"\r",
-							"// Testing response times\r",
-							"// Test for the response time to be within a specified range:\r",
-							"pm.test(\"Response time is less than 200ms\", () => {\r",
-							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
 							"\r",
 							"// Asserting a value type\r",
 							"// Test the type of any part of the response:\r",
-							"const jsonData = pm.response.json();\r",
-							"pm.test(\"Test data type of the response\", () => {\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"  pm.expect(jsonData.pk).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.title).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.description).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.price).to.be.a(\"number\");\r",
-							"  pm.expect(jsonData.country).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.city).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
-							"  pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
-							"  pm.expect(jsonData.host_location).to.a(\"string\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							"    const jsonData = pm.response.json();\r",
+							"    pm.test(\"Test data type of the response\", () => {\r",
+							"      pm.expect(jsonData).to.be.an(\"object\");\r",
+							"      pm.expect(jsonData.pk).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.description).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.picture_url).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.price).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.city).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.features_on).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.features_off).to.be.an(\"array\");\r",
+							"      pm.expect(jsonData.host_name).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_phone).to.be.a(\"string\");\r",
+							"      pm.expect(jsonData.host_location).to.a(\"string\");\r",
+							"    });\r",
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"id": "cc2f5849-c6ee-49c9-ab4f-6124dd03e26d",
+			"_postman_id": "82f3df16-6b55-48d2-885d-655df616c211",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -2118,43 +3329,318 @@
 					],
 					"variable": [
 						{
-							"id": "40e40572-cea3-4a4b-937a-0ad766458dc8",
+							"id": "3e766234-5fb6-400c-87b7-58d13d07dc60",
 							"key": "pk",
-							"value": "20"
+							"value": "20",
+							"type": "string"
 						}
 					]
 				}
 			},
 			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"id": "2d35b667-b90f-45ad-81d8-0c451d37274c",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
 		},
 		{
-			"listen": "test",
-			"script": {
-				"id": "56fc3181-6a62-4417-806d-e92884f527d4",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
+			"name": "404 Error Запрос к несуществуещей карточке отеля",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3395a1a-c4ea-4de7-b7ca-e59189f46e15",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"// Response time increased up to 400",
+							"pm.test(\"Response time is less than 400\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "3840923d-7b64-466d-a1a7-e7207f25a448",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places/:pk",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places",
+						":pk"
+					],
+					"variable": [
+						{
+							"id": "718b4542-8192-4196-833f-50e4df4a675c",
+							"key": "pk",
+							"value": "21",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
 		{
-			"id": "10c0559b-5c17-4660-b8f2-0b1ee223e213",
-			"value": "",
-			"type": "string"
+			"name": "Фильтр по цене От граничные значения 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49261728-3b20-441d-aec1-23b35bd781ae",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "f5b5fc7d-5c82-4b1b-8afd-5501e5cd361e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=1",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От граничные значения 922337203",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb565ab7-f3d2-4233-bc5f-0062db35be0e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "d3107393-2adc-414f-8635-cd2ca76a054d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=922337203",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "922337203"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От граничные значения 92233720368547",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bfd4a00-b8fd-4259-ba49-62681a212a63",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "e276acb1-1250-453e-ac0e-792b4f6672bb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=92233720368547",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "92233720368547"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От граничные значения 9223372036854775807",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6450e37-a29f-42a6-8d79-da6c5d63d4a9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "363b56cc-8938-4ea1-9755-23bd735233e3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=9223372036854775807",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "9223372036854775807"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтр по цене От граничные значения 9223372036854775808",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b94207dd-7baa-4b8b-bccb-6ffa868f88c1",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// Response time increased up to 400\r",
+							"pm.test(\"Response time is less than 400\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "da1ea2b1-7c3f-4423-bf89-017176c94199",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pythonistic.pythonanywhere.com/places?from=9223372036854775808",
+					"protocol": "https",
+					"host": [
+						"pythonistic",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "9223372036854775808"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
